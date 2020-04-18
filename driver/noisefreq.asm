@@ -2,166 +2,186 @@
 ; File Created by SDCC : free open source ANSI-C Compiler
 ; Version 3.8.0 #10562 (Linux)
 ;--------------------------------------------------------
-	.module noisefreq
+	; MODULE noisefreq
 ; 	.optsdcc -mgbz80
-	
+	; Generated using the rgbds tokens.
+	; We have to define these here as sdcc doesn't make them global by default
+	GLOBAL __mulschar
+	GLOBAL __muluchar
+	GLOBAL __mulint
+	GLOBAL __divschar
+	GLOBAL __divuchar
+	GLOBAL __divsint
+	GLOBAL __divuint
+	GLOBAL __modschar
+	GLOBAL __moduchar
+	GLOBAL __modsint
+	GLOBAL __moduint
+	GLOBAL __mullong
+	GLOBAL __modslong
+	GLOBAL __divslong
+	GLOBAL banked_call
+	GLOBAL banked_ret
+
 ;--------------------------------------------------------
 ; Public variables in this module
 ;--------------------------------------------------------
-	.globl _noise_freq
+	GLOBAL _noise_freq
 ;--------------------------------------------------------
 ; special function registers
 ;--------------------------------------------------------
 ;--------------------------------------------------------
 ; ram data
 ;--------------------------------------------------------
-	.area _DATA
+	SECTION "noisefreq.c_DATA",BSS
 ;--------------------------------------------------------
 ; absolute external ram data
 ;--------------------------------------------------------
+	SECTION "DABS (ABS)",CODE
 ;--------------------------------------------------------
 ; global & static initialisations
 ;--------------------------------------------------------
-	.area _HOME
-	.area _GSINIT
-	.area _GSFINAL
-	.area _GSINIT
+	SECTION "HOME",CODE
+	SECTION "GSINIT",CODE
+	SECTION "GSFINAL",CODE
+	SECTION "GSINIT",CODE
 ;--------------------------------------------------------
 ; Home
 ;--------------------------------------------------------
-	.area _HOME
-	.area _HOME
+	SECTION "noisefreq.c_HOME",HOME
+	SECTION "noisefreq.c_HOME",HOME
 ;--------------------------------------------------------
 ; code
 ;--------------------------------------------------------
-	.area _CODE
-	.area _CODE
+	SECTION "noisefreq.c_CODE",CODE
+	SECTION "noisefreq.c_CODE",CODE
 _noise_freq:
-	.db #0xf7	; 247
-	.db #0xe7	; 231
-	.db #0xd7	; 215
-	.db #0xc7	; 199
-	.db #0xb7	; 183
-	.db #0xa7	; 167
-	.db #0x97	; 151
-	.db #0x87	; 135
-	.db #0x77	; 119	'w'
-	.db #0x67	; 103	'g'
-	.db #0x57	; 87	'W'
-	.db #0x47	; 71	'G'
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0xf6	; 246
-	.db #0xe6	; 230
-	.db #0xd6	; 214
-	.db #0xc6	; 198
-	.db #0xb6	; 182
-	.db #0xa6	; 166
-	.db #0x96	; 150
-	.db #0x86	; 134
-	.db #0x76	; 118	'v'
-	.db #0x66	; 102	'f'
-	.db #0x56	; 86	'V'
-	.db #0x46	; 70	'F'
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0xf5	; 245
-	.db #0xe5	; 229
-	.db #0xd5	; 213
-	.db #0xc5	; 197
-	.db #0xb5	; 181
-	.db #0xa5	; 165
-	.db #0x95	; 149
-	.db #0x85	; 133
-	.db #0x75	; 117	'u'
-	.db #0x65	; 101	'e'
-	.db #0x55	; 85	'U'
-	.db #0x45	; 69	'E'
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0xf4	; 244
-	.db #0xe4	; 228
-	.db #0xd4	; 212
-	.db #0xc4	; 196
-	.db #0xb4	; 180
-	.db #0xa4	; 164
-	.db #0x94	; 148
-	.db #0x84	; 132
-	.db #0x74	; 116	't'
-	.db #0x64	; 100	'd'
-	.db #0x54	; 84	'T'
-	.db #0x44	; 68	'D'
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0xf3	; 243
-	.db #0xe3	; 227
-	.db #0xd3	; 211
-	.db #0xc3	; 195
-	.db #0xb3	; 179
-	.db #0xa3	; 163
-	.db #0x93	; 147
-	.db #0x83	; 131
-	.db #0x73	; 115	's'
-	.db #0x63	; 99	'c'
-	.db #0x53	; 83	'S'
-	.db #0x43	; 67	'C'
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0xf2	; 242
-	.db #0xe2	; 226
-	.db #0xd2	; 210
-	.db #0xc2	; 194
-	.db #0xb2	; 178
-	.db #0xa2	; 162
-	.db #0x92	; 146
-	.db #0x82	; 130
-	.db #0x72	; 114	'r'
-	.db #0x62	; 98	'b'
-	.db #0x52	; 82	'R'
-	.db #0x42	; 66	'B'
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0xf1	; 241
-	.db #0xe1	; 225
-	.db #0xd1	; 209
-	.db #0xc1	; 193
-	.db #0xb1	; 177
-	.db #0xa1	; 161
-	.db #0x91	; 145
-	.db #0x81	; 129
-	.db #0x71	; 113	'q'
-	.db #0x61	; 97	'a'
-	.db #0x51	; 81	'Q'
-	.db #0x41	; 65	'A'
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0xf0	; 240
-	.db #0xe0	; 224
-	.db #0xd0	; 208
-	.db #0xc0	; 192
-	.db #0xb0	; 176
-	.db #0xa0	; 160
-	.db #0x90	; 144
-	.db #0x80	; 128
-	.db #0x70	; 112	'p'
-	.db #0x60	; 96
-	.db #0x50	; 80	'P'
-	.db #0x40	; 64
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
+	DB $F7	; 247
+	DB $E7	; 231
+	DB $D7	; 215
+	DB $C7	; 199
+	DB $B7	; 183
+	DB $A7	; 167
+	DB $97	; 151
+	DB $87	; 135
+	DB $77	; 119	'w'
+	DB $67	; 103	'g'
+	DB $57	; 87	'W'
+	DB $47	; 71	'G'
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $F6	; 246
+	DB $E6	; 230
+	DB $D6	; 214
+	DB $C6	; 198
+	DB $B6	; 182
+	DB $A6	; 166
+	DB $96	; 150
+	DB $86	; 134
+	DB $76	; 118	'v'
+	DB $66	; 102	'f'
+	DB $56	; 86	'V'
+	DB $46	; 70	'F'
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $F5	; 245
+	DB $E5	; 229
+	DB $D5	; 213
+	DB $C5	; 197
+	DB $B5	; 181
+	DB $A5	; 165
+	DB $95	; 149
+	DB $85	; 133
+	DB $75	; 117	'u'
+	DB $65	; 101	'e'
+	DB $55	; 85	'U'
+	DB $45	; 69	'E'
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $F4	; 244
+	DB $E4	; 228
+	DB $D4	; 212
+	DB $C4	; 196
+	DB $B4	; 180
+	DB $A4	; 164
+	DB $94	; 148
+	DB $84	; 132
+	DB $74	; 116	't'
+	DB $64	; 100	'd'
+	DB $54	; 84	'T'
+	DB $44	; 68	'D'
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $F3	; 243
+	DB $E3	; 227
+	DB $D3	; 211
+	DB $C3	; 195
+	DB $B3	; 179
+	DB $A3	; 163
+	DB $93	; 147
+	DB $83	; 131
+	DB $73	; 115	's'
+	DB $63	; 99	'c'
+	DB $53	; 83	'S'
+	DB $43	; 67	'C'
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $F2	; 242
+	DB $E2	; 226
+	DB $D2	; 210
+	DB $C2	; 194
+	DB $B2	; 178
+	DB $A2	; 162
+	DB $92	; 146
+	DB $82	; 130
+	DB $72	; 114	'r'
+	DB $62	; 98	'b'
+	DB $52	; 82	'R'
+	DB $42	; 66	'B'
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $F1	; 241
+	DB $E1	; 225
+	DB $D1	; 209
+	DB $C1	; 193
+	DB $B1	; 177
+	DB $A1	; 161
+	DB $91	; 145
+	DB $81	; 129
+	DB $71	; 113	'q'
+	DB $61	; 97	'a'
+	DB $51	; 81	'Q'
+	DB $41	; 65	'A'
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $F0	; 240
+	DB $E0	; 224
+	DB $D0	; 208
+	DB $C0	; 192
+	DB $B0	; 176
+	DB $A0	; 160
+	DB $90	; 144
+	DB $80	; 128
+	DB $70	; 112	'p'
+	DB $60	; 96
+	DB $50	; 80	'P'
+	DB $40	; 64
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	SECTION "CABS (ABS)",CODE

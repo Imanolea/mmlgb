@@ -2,300 +2,320 @@
 ; File Created by SDCC : free open source ANSI-C Compiler
 ; Version 3.8.0 #10562 (Linux)
 ;--------------------------------------------------------
-	.module vib
+	; MODULE vib
 ; 	.optsdcc -mgbz80
-	
+	; Generated using the rgbds tokens.
+	; We have to define these here as sdcc doesn't make them global by default
+	GLOBAL __mulschar
+	GLOBAL __muluchar
+	GLOBAL __mulint
+	GLOBAL __divschar
+	GLOBAL __divuchar
+	GLOBAL __divsint
+	GLOBAL __divuint
+	GLOBAL __modschar
+	GLOBAL __moduchar
+	GLOBAL __modsint
+	GLOBAL __moduint
+	GLOBAL __mullong
+	GLOBAL __modslong
+	GLOBAL __divslong
+	GLOBAL banked_call
+	GLOBAL banked_ret
+
 ;--------------------------------------------------------
 ; Public variables in this module
 ;--------------------------------------------------------
-	.globl _vib4
-	.globl _vib3
-	.globl _vib2
-	.globl _vib1
+	GLOBAL _vib4
+	GLOBAL _vib3
+	GLOBAL _vib2
+	GLOBAL _vib1
 ;--------------------------------------------------------
 ; special function registers
 ;--------------------------------------------------------
 ;--------------------------------------------------------
 ; ram data
 ;--------------------------------------------------------
-	.area _DATA
+	SECTION "vib.c_DATA",BSS
 ;--------------------------------------------------------
 ; absolute external ram data
 ;--------------------------------------------------------
+	SECTION "DABS (ABS)",CODE
 ;--------------------------------------------------------
 ; global & static initialisations
 ;--------------------------------------------------------
-	.area _HOME
-	.area _GSINIT
-	.area _GSFINAL
-	.area _GSINIT
+	SECTION "HOME",CODE
+	SECTION "GSINIT",CODE
+	SECTION "GSFINAL",CODE
+	SECTION "GSINIT",CODE
 ;--------------------------------------------------------
 ; Home
 ;--------------------------------------------------------
-	.area _HOME
-	.area _HOME
+	SECTION "vib.c_HOME",HOME
+	SECTION "vib.c_HOME",HOME
 ;--------------------------------------------------------
 ; code
 ;--------------------------------------------------------
-	.area _CODE
-	.area _CODE
+	SECTION "vib.c_CODE",CODE
+	SECTION "vib.c_CODE",CODE
 _vib1:
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x02	; 2
-	.db #0x02	; 2
-	.db #0x02	; 2
-	.db #0x02	; 2
-	.db #0x02	; 2
-	.db #0x02	; 2
-	.db #0x02	; 2
-	.db #0x02	; 2
-	.db #0x02	; 2
-	.db #0x02	; 2
-	.db #0x02	; 2
-	.db #0x02	; 2
-	.db #0x02	; 2
-	.db #0x02	; 2
-	.db #0x02	; 2
-	.db #0x02	; 2
-	.db #0x02	; 2
-	.db #0x02	; 2
-	.db #0x02	; 2
-	.db #0x02	; 2
-	.db #0x02	; 2
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x01	; 1
+	DB $01	; 1
+	DB $01	; 1
+	DB $01	; 1
+	DB $01	; 1
+	DB $01	; 1
+	DB $01	; 1
+	DB $02	; 2
+	DB $02	; 2
+	DB $02	; 2
+	DB $02	; 2
+	DB $02	; 2
+	DB $02	; 2
+	DB $02	; 2
+	DB $02	; 2
+	DB $02	; 2
+	DB $02	; 2
+	DB $02	; 2
+	DB $02	; 2
+	DB $02	; 2
+	DB $02	; 2
+	DB $02	; 2
+	DB $02	; 2
+	DB $02	; 2
+	DB $02	; 2
+	DB $02	; 2
+	DB $02	; 2
+	DB $02	; 2
+	DB $01	; 1
+	DB $01	; 1
+	DB $01	; 1
+	DB $01	; 1
+	DB $01	; 1
+	DB $01	; 1
+	DB $01	; 1
+	DB $01	; 1
+	DB $01	; 1
+	DB $01	; 1
+	DB $01	; 1
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $01	; 1
+	DB $01	; 1
+	DB $01	; 1
+	DB $01	; 1
+	DB $01	; 1
 _vib2:
-	.db #0x02	; 2
-	.db #0x02	; 2
-	.db #0x02	; 2
-	.db #0x03	; 3
-	.db #0x03	; 3
-	.db #0x03	; 3
-	.db #0x03	; 3
-	.db #0x03	; 3
-	.db #0x03	; 3
-	.db #0x04	; 4
-	.db #0x04	; 4
-	.db #0x04	; 4
-	.db #0x04	; 4
-	.db #0x04	; 4
-	.db #0x04	; 4
-	.db #0x04	; 4
-	.db #0x04	; 4
-	.db #0x04	; 4
-	.db #0x04	; 4
-	.db #0x04	; 4
-	.db #0x04	; 4
-	.db #0x04	; 4
-	.db #0x04	; 4
-	.db #0x04	; 4
-	.db #0x03	; 3
-	.db #0x03	; 3
-	.db #0x03	; 3
-	.db #0x03	; 3
-	.db #0x03	; 3
-	.db #0x03	; 3
-	.db #0x02	; 2
-	.db #0x02	; 2
-	.db #0x02	; 2
-	.db #0x02	; 2
-	.db #0x02	; 2
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x02	; 2
-	.db #0x02	; 2
+	DB $02	; 2
+	DB $02	; 2
+	DB $02	; 2
+	DB $03	; 3
+	DB $03	; 3
+	DB $03	; 3
+	DB $03	; 3
+	DB $03	; 3
+	DB $03	; 3
+	DB $04	; 4
+	DB $04	; 4
+	DB $04	; 4
+	DB $04	; 4
+	DB $04	; 4
+	DB $04	; 4
+	DB $04	; 4
+	DB $04	; 4
+	DB $04	; 4
+	DB $04	; 4
+	DB $04	; 4
+	DB $04	; 4
+	DB $04	; 4
+	DB $04	; 4
+	DB $04	; 4
+	DB $03	; 3
+	DB $03	; 3
+	DB $03	; 3
+	DB $03	; 3
+	DB $03	; 3
+	DB $03	; 3
+	DB $02	; 2
+	DB $02	; 2
+	DB $02	; 2
+	DB $02	; 2
+	DB $02	; 2
+	DB $01	; 1
+	DB $01	; 1
+	DB $01	; 1
+	DB $01	; 1
+	DB $01	; 1
+	DB $01	; 1
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $01	; 1
+	DB $01	; 1
+	DB $01	; 1
+	DB $01	; 1
+	DB $01	; 1
+	DB $01	; 1
+	DB $02	; 2
+	DB $02	; 2
 _vib3:
-	.db #0x04	; 4
-	.db #0x04	; 4
-	.db #0x05	; 5
-	.db #0x05	; 5
-	.db #0x06	; 6
-	.db #0x06	; 6
-	.db #0x06	; 6
-	.db #0x07	; 7
-	.db #0x07	; 7
-	.db #0x07	; 7
-	.db #0x07	; 7
-	.db #0x08	; 8
-	.db #0x08	; 8
-	.db #0x08	; 8
-	.db #0x08	; 8
-	.db #0x08	; 8
-	.db #0x08	; 8
-	.db #0x08	; 8
-	.db #0x08	; 8
-	.db #0x08	; 8
-	.db #0x08	; 8
-	.db #0x08	; 8
-	.db #0x07	; 7
-	.db #0x07	; 7
-	.db #0x07	; 7
-	.db #0x07	; 7
-	.db #0x06	; 6
-	.db #0x06	; 6
-	.db #0x06	; 6
-	.db #0x05	; 5
-	.db #0x05	; 5
-	.db #0x04	; 4
-	.db #0x04	; 4
-	.db #0x04	; 4
-	.db #0x03	; 3
-	.db #0x03	; 3
-	.db #0x02	; 2
-	.db #0x02	; 2
-	.db #0x02	; 2
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x02	; 2
-	.db #0x02	; 2
-	.db #0x02	; 2
-	.db #0x03	; 3
-	.db #0x03	; 3
-	.db #0x04	; 4
+	DB $04	; 4
+	DB $04	; 4
+	DB $05	; 5
+	DB $05	; 5
+	DB $06	; 6
+	DB $06	; 6
+	DB $06	; 6
+	DB $07	; 7
+	DB $07	; 7
+	DB $07	; 7
+	DB $07	; 7
+	DB $08	; 8
+	DB $08	; 8
+	DB $08	; 8
+	DB $08	; 8
+	DB $08	; 8
+	DB $08	; 8
+	DB $08	; 8
+	DB $08	; 8
+	DB $08	; 8
+	DB $08	; 8
+	DB $08	; 8
+	DB $07	; 7
+	DB $07	; 7
+	DB $07	; 7
+	DB $07	; 7
+	DB $06	; 6
+	DB $06	; 6
+	DB $06	; 6
+	DB $05	; 5
+	DB $05	; 5
+	DB $04	; 4
+	DB $04	; 4
+	DB $04	; 4
+	DB $03	; 3
+	DB $03	; 3
+	DB $02	; 2
+	DB $02	; 2
+	DB $02	; 2
+	DB $01	; 1
+	DB $01	; 1
+	DB $01	; 1
+	DB $01	; 1
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $01	; 1
+	DB $01	; 1
+	DB $01	; 1
+	DB $01	; 1
+	DB $02	; 2
+	DB $02	; 2
+	DB $02	; 2
+	DB $03	; 3
+	DB $03	; 3
+	DB $04	; 4
 _vib4:
-	.db #0x08	; 8
-	.db #0x09	; 9
-	.db #0x0a	; 10
-	.db #0x0a	; 10
-	.db #0x0b	; 11
-	.db #0x0c	; 12
-	.db #0x0c	; 12
-	.db #0x0d	; 13
-	.db #0x0e	; 14
-	.db #0x0e	; 14
-	.db #0x0f	; 15
-	.db #0x0f	; 15
-	.db #0x0f	; 15
-	.db #0x10	; 16
-	.db #0x10	; 16
-	.db #0x10	; 16
-	.db #0x10	; 16
-	.db #0x10	; 16
-	.db #0x10	; 16
-	.db #0x10	; 16
-	.db #0x0f	; 15
-	.db #0x0f	; 15
-	.db #0x0f	; 15
-	.db #0x0e	; 14
-	.db #0x0e	; 14
-	.db #0x0d	; 13
-	.db #0x0c	; 12
-	.db #0x0c	; 12
-	.db #0x0b	; 11
-	.db #0x0a	; 10
-	.db #0x0a	; 10
-	.db #0x09	; 9
-	.db #0x08	; 8
-	.db #0x07	; 7
-	.db #0x06	; 6
-	.db #0x06	; 6
-	.db #0x05	; 5
-	.db #0x04	; 4
-	.db #0x04	; 4
-	.db #0x03	; 3
-	.db #0x02	; 2
-	.db #0x02	; 2
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x00	; 0
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x01	; 1
-	.db #0x02	; 2
-	.db #0x02	; 2
-	.db #0x03	; 3
-	.db #0x04	; 4
-	.db #0x04	; 4
-	.db #0x05	; 5
-	.db #0x06	; 6
-	.db #0x06	; 6
-	.db #0x07	; 7
+	DB $08	; 8
+	DB $09	; 9
+	DB $0A	; 10
+	DB $0A	; 10
+	DB $0B	; 11
+	DB $0C	; 12
+	DB $0C	; 12
+	DB $0D	; 13
+	DB $0E	; 14
+	DB $0E	; 14
+	DB $0F	; 15
+	DB $0F	; 15
+	DB $0F	; 15
+	DB $10	; 16
+	DB $10	; 16
+	DB $10	; 16
+	DB $10	; 16
+	DB $10	; 16
+	DB $10	; 16
+	DB $10	; 16
+	DB $0F	; 15
+	DB $0F	; 15
+	DB $0F	; 15
+	DB $0E	; 14
+	DB $0E	; 14
+	DB $0D	; 13
+	DB $0C	; 12
+	DB $0C	; 12
+	DB $0B	; 11
+	DB $0A	; 10
+	DB $0A	; 10
+	DB $09	; 9
+	DB $08	; 8
+	DB $07	; 7
+	DB $06	; 6
+	DB $06	; 6
+	DB $05	; 5
+	DB $04	; 4
+	DB $04	; 4
+	DB $03	; 3
+	DB $02	; 2
+	DB $02	; 2
+	DB $01	; 1
+	DB $01	; 1
+	DB $01	; 1
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $00	; 0
+	DB $01	; 1
+	DB $01	; 1
+	DB $01	; 1
+	DB $02	; 2
+	DB $02	; 2
+	DB $03	; 3
+	DB $04	; 4
+	DB $04	; 4
+	DB $05	; 5
+	DB $06	; 6
+	DB $06	; 6
+	DB $07	; 7
+	SECTION "CABS (ABS)",CODE
