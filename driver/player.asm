@@ -2143,10 +2143,10 @@ _main::
 ; ;player.c:124: togglePaused();
 ; 	call	_togglePaused
 00125$:
-;player.c:126: mus_update();
-	call	_mus_update
-;player.c:127: enable_interrupts();
-	call	_enable_interrupts
+; ;player.c:126: mus_update();
+; 	call	_mus_update
+; ;player.c:127: enable_interrupts();
+; 	call	_enable_interrupts
 00127$:
 ;player.c:130: wait_vbl_done();
 	call	_wait_vbl_done
