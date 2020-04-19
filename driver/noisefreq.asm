@@ -1,60 +1,60 @@
-;--------------------------------------------------------
-; File Created by SDCC : free open source ANSI-C Compiler
-; Version 3.8.0 #10562 (Linux)
-;--------------------------------------------------------
-	; MODULE noisefreq
-; 	.optsdcc -mgbz80
-	; Generated using the rgbds tokens.
-	; We have to define these here as sdcc doesn't make them global by default
-	GLOBAL __mulschar
-	GLOBAL __muluchar
-	GLOBAL __mulint
-	GLOBAL __divschar
-	GLOBAL __divuchar
-	GLOBAL __divsint
-	GLOBAL __divuint
-	GLOBAL __modschar
-	GLOBAL __moduchar
-	GLOBAL __modsint
-	GLOBAL __moduint
-	GLOBAL __mullong
-	GLOBAL __modslong
-	GLOBAL __divslong
-	GLOBAL banked_call
-	GLOBAL banked_ret
+; ;--------------------------------------------------------
+; ; File Created by SDCC : free open source ANSI-C Compiler
+; ; Version 3.8.0 #10562 (Linux)
+; ;--------------------------------------------------------
+; 	; MODULE noisefreq
+; ; 	.optsdcc -mgbz80
+; 	; Generated using the rgbds tokens.
+; 	; We have to define these here as sdcc doesn't make them global by default
+; 	GLOBAL __mulschar
+; 	GLOBAL __muluchar
+; 	GLOBAL __mulint
+; 	GLOBAL __divschar
+; 	GLOBAL __divuchar
+; 	GLOBAL __divsint
+; 	GLOBAL __divuint
+; 	GLOBAL __modschar
+; 	GLOBAL __moduchar
+; 	GLOBAL __modsint
+; 	GLOBAL __moduint
+; 	GLOBAL __mullong
+; 	GLOBAL __modslong
+; 	GLOBAL __divslong
+; 	GLOBAL banked_call
+; 	GLOBAL banked_ret
 
-;--------------------------------------------------------
-; Public variables in this module
-;--------------------------------------------------------
-	GLOBAL _noise_freq
-;--------------------------------------------------------
-; special function registers
-;--------------------------------------------------------
-;--------------------------------------------------------
-; ram data
-;--------------------------------------------------------
-	SECTION "noisefreq.c_DATA",BSS
-;--------------------------------------------------------
-; absolute external ram data
-;--------------------------------------------------------
-	SECTION "DABS (ABS)",CODE
-;--------------------------------------------------------
-; global & static initialisations
-;--------------------------------------------------------
-	SECTION "HOME",CODE
-	SECTION "GSINIT",CODE
-	SECTION "GSFINAL",CODE
-	SECTION "GSINIT",CODE
-;--------------------------------------------------------
-; Home
-;--------------------------------------------------------
-	SECTION "noisefreq.c_HOME",HOME
-	SECTION "noisefreq.c_HOME",HOME
-;--------------------------------------------------------
-; code
-;--------------------------------------------------------
-	SECTION "noisefreq.c_CODE",CODE
-	SECTION "noisefreq.c_CODE",CODE
+; ;--------------------------------------------------------
+; ; Public variables in this module
+; ;--------------------------------------------------------
+; 	GLOBAL _noise_freq
+; ;--------------------------------------------------------
+; ; special function registers
+; ;--------------------------------------------------------
+; ;--------------------------------------------------------
+; ; ram data
+; ;--------------------------------------------------------
+; 	SECTION "noisefreq.c_DATA",WRAM0
+; ;--------------------------------------------------------
+; ; absolute external ram data
+; ;--------------------------------------------------------
+; 	SECTION "DABS (ABS)",ROMX
+; ;--------------------------------------------------------
+; ; global & static initialisations
+; ;--------------------------------------------------------
+; 	SECTION "ROM0",ROMX
+; 	SECTION "GSINIT",ROMX
+; 	SECTION "GSFINAL",ROMX
+; 	SECTION "GSINIT",ROMX
+; ;--------------------------------------------------------
+; ; Home
+; ;--------------------------------------------------------
+; 	SECTION "noisefreq.c_ROM0",ROM0
+; 	SECTION "noisefreq.c_ROM0",ROM0
+; ;--------------------------------------------------------
+; ; code
+; ;--------------------------------------------------------
+; 	SECTION "noisefreq.c_ROMX",ROMX
+; 	SECTION "noisefreq.c_ROMX",ROMX
 _noise_freq:
 	DB $F7	; 247
 	DB $E7	; 231
@@ -184,4 +184,4 @@ _noise_freq:
 	DB $00	; 0
 	DB $00	; 0
 	DB $00	; 0
-	SECTION "CABS (ABS)",CODE
+	; SECTION "CABS (ABS)",ROMX

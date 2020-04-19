@@ -1,342 +1,342 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : free open source ANSI-C Compiler
-; Version 3.8.0 #10562 (Linux)
+; Version 3.8.0 10562 (Linux)
 ;--------------------------------------------------------
-	; MODULE music
-; 	.optsdcc -mgbz80
-	; Generated using the rgbds tokens.
-	; We have to define these here as sdcc doesn't make them global by default
-	GLOBAL __mulschar
-	GLOBAL __muluchar
-	GLOBAL __mulint
-	GLOBAL __divschar
-	GLOBAL __divuchar
-	GLOBAL __divsint
-	GLOBAL __divuint
-	GLOBAL __modschar
-	GLOBAL __moduchar
-	GLOBAL __modsint
-	GLOBAL __moduint
-	GLOBAL __mullong
-	GLOBAL __modslong
-	GLOBAL __divslong
-	GLOBAL banked_call
-	GLOBAL banked_ret
+; 	; MODULE music
+; ; 	.optsdcc -mgbz80
+; 	; Generated using the rgbds tokens.
+; 	; We have to define these here as sdcc doesn't make them global by default
+; 	GLOBAL __mulschar
+; 	GLOBAL __muluchar
+; 	GLOBAL __mulint
+; 	GLOBAL __divschar
+; 	GLOBAL __divuchar
+; 	GLOBAL __divsint
+; 	GLOBAL __divuint
+; 	GLOBAL __modschar
+; 	GLOBAL __moduchar
+; 	GLOBAL __modsint
+; 	GLOBAL __moduint
+; 	GLOBAL __mullong
+; 	GLOBAL __modslong
+; 	GLOBAL __divslong
+; 	GLOBAL banked_call
+; 	GLOBAL banked_ret
 
-;--------------------------------------------------------
-; Public variables in this module
-;--------------------------------------------------------
-	GLOBAL _memcpy
-	GLOBAL _mus_rep_depth4
-	GLOBAL _mus_rep_depth3
-	GLOBAL _mus_rep_depth2
-	GLOBAL _mus_rep_depth1
-	GLOBAL _mus_repeats4
-	GLOBAL _mus_repeats3
-	GLOBAL _mus_repeats2
-	GLOBAL _mus_repeats1
-	GLOBAL _mus_rep4
-	GLOBAL _mus_rep3
-	GLOBAL _mus_rep2
-	GLOBAL _mus_rep1
-	GLOBAL _mus_macro4
-	GLOBAL _mus_macro3
-	GLOBAL _mus_macro2
-	GLOBAL _mus_macro1
-	GLOBAL _mus_po3
-	GLOBAL _mus_po2
-	GLOBAL _mus_po1
-	GLOBAL _mus_noise_step
-	GLOBAL _mus_vib_delay2
-	GLOBAL _mus_vib_delay1
-	GLOBAL _mus_vib_pos2
-	GLOBAL _mus_vib_pos1
-	GLOBAL _mus_vib_table2
-	GLOBAL _mus_vib_table1
-	GLOBAL _mus_vib_speed2
-	GLOBAL _mus_vib_speed1
-	GLOBAL _mus_porta4
-	GLOBAL _mus_porta2
-	GLOBAL _mus_porta1
-	GLOBAL _mus_slide4
-	GLOBAL _mus_slide2
-	GLOBAL _mus_slide1
-	GLOBAL _mus_target4
-	GLOBAL _mus_target2
-	GLOBAL _mus_target1
-	GLOBAL _mus_wait4
-	GLOBAL _mus_wait3
-	GLOBAL _mus_wait2
-	GLOBAL _mus_wait1
-	GLOBAL _mus_duty2
-	GLOBAL _mus_duty1
-	GLOBAL _mus_pan4
-	GLOBAL _mus_pan3
-	GLOBAL _mus_pan2
-	GLOBAL _mus_pan1
-	GLOBAL _mus_env4
-	GLOBAL _mus_env2
-	GLOBAL _mus_env1
-	GLOBAL _mus_volume4
-	GLOBAL _mus_volume3
-	GLOBAL _mus_volume2
-	GLOBAL _mus_volume1
-	GLOBAL _mus_length4
-	GLOBAL _mus_length3
-	GLOBAL _mus_length2
-	GLOBAL _mus_length1
-	GLOBAL _mus_octave4
-	GLOBAL _mus_octave3
-	GLOBAL _mus_octave2
-	GLOBAL _mus_octave1
-	GLOBAL _mus_loop4
-	GLOBAL _mus_loop3
-	GLOBAL _mus_loop2
-	GLOBAL _mus_loop1
-	GLOBAL _mus_wave
-	GLOBAL _mus_data4_bak
-	GLOBAL _mus_data3_bak
-	GLOBAL _mus_data2_bak
-	GLOBAL _mus_data1_bak
-	GLOBAL _mus_data4
-	GLOBAL _mus_data3
-	GLOBAL _mus_data2
-	GLOBAL _mus_data1
-	GLOBAL _mus_freq4
-	GLOBAL _mus_freq3
-	GLOBAL _mus_freq2
-	GLOBAL _mus_freq1
-	GLOBAL _mus_done4
-	GLOBAL _mus_done3
-	GLOBAL _mus_done2
-	GLOBAL _mus_done1
-	GLOBAL _mus_enabled4
-	GLOBAL _mus_enabled1
-	GLOBAL _mus_song
-	GLOBAL _mus_step
-	GLOBAL _mus_paused
-	GLOBAL _mus_init
-	GLOBAL _mus_setPaused
-	GLOBAL _mus_togglePaused
-	GLOBAL _mus_disable1
-	GLOBAL _mus_disable4
-	GLOBAL _mus_restore1
-	GLOBAL _mus_restore4
-	GLOBAL _mus_is_done
-	GLOBAL _mus_update
-	GLOBAL _mus_update1
-	GLOBAL _mus_update2
-	GLOBAL _mus_update3
-	GLOBAL _mus_update4
+; ;--------------------------------------------------------
+; ; Public variables in this module
+; ;--------------------------------------------------------
+; 	GLOBAL _memcpy
+; 	GLOBAL _mus_rep_depth4
+; 	GLOBAL _mus_rep_depth3
+; 	GLOBAL _mus_rep_depth2
+; 	GLOBAL _mus_rep_depth1
+; 	GLOBAL _mus_repeats4
+; 	GLOBAL _mus_repeats3
+; 	GLOBAL _mus_repeats2
+; 	GLOBAL _mus_repeats1
+; 	GLOBAL _mus_rep4
+; 	GLOBAL _mus_rep3
+; 	GLOBAL _mus_rep2
+; 	GLOBAL _mus_rep1
+; 	GLOBAL _mus_macro4
+; 	GLOBAL _mus_macro3
+; 	GLOBAL _mus_macro2
+; 	GLOBAL _mus_macro1
+; 	GLOBAL _mus_po3
+; 	GLOBAL _mus_po2
+; 	GLOBAL _mus_po1
+; 	GLOBAL _mus_noise_step
+; 	GLOBAL _mus_vib_delay2
+; 	GLOBAL _mus_vib_delay1
+; 	GLOBAL _mus_vib_pos2
+; 	GLOBAL _mus_vib_pos1
+; 	GLOBAL _mus_vib_table2
+; 	GLOBAL _mus_vib_table1
+; 	GLOBAL _mus_vib_speed2
+; 	GLOBAL _mus_vib_speed1
+; 	GLOBAL _mus_porta4
+; 	GLOBAL _mus_porta2
+; 	GLOBAL _mus_porta1
+; 	GLOBAL _mus_slide4
+; 	GLOBAL _mus_slide2
+; 	GLOBAL _mus_slide1
+; 	GLOBAL _mus_target4
+; 	GLOBAL _mus_target2
+; 	GLOBAL _mus_target1
+; 	GLOBAL _mus_wait4
+; 	GLOBAL _mus_wait3
+; 	GLOBAL _mus_wait2
+; 	GLOBAL _mus_wait1
+; 	GLOBAL _mus_duty2
+; 	GLOBAL _mus_duty1
+; 	GLOBAL _mus_pan4
+; 	GLOBAL _mus_pan3
+; 	GLOBAL _mus_pan2
+; 	GLOBAL _mus_pan1
+; 	GLOBAL _mus_env4
+; 	GLOBAL _mus_env2
+; 	GLOBAL _mus_env1
+; 	GLOBAL _mus_volume4
+; 	GLOBAL _mus_volume3
+; 	GLOBAL _mus_volume2
+; 	GLOBAL _mus_volume1
+; 	GLOBAL _mus_length4
+; 	GLOBAL _mus_length3
+; 	GLOBAL _mus_length2
+; 	GLOBAL _mus_length1
+; 	GLOBAL _mus_octave4
+; 	GLOBAL _mus_octave3
+; 	GLOBAL _mus_octave2
+; 	GLOBAL _mus_octave1
+; 	GLOBAL _mus_loop4
+; 	GLOBAL _mus_loop3
+; 	GLOBAL _mus_loop2
+; 	GLOBAL _mus_loop1
+; 	GLOBAL _mus_wave
+; 	GLOBAL _mus_data4_bak
+; 	GLOBAL _mus_data3_bak
+; 	GLOBAL _mus_data2_bak
+; 	GLOBAL _mus_data1_bak
+; 	GLOBAL _mus_data4
+; 	GLOBAL _mus_data3
+; 	GLOBAL _mus_data2
+; 	GLOBAL _mus_data1
+; 	GLOBAL _mus_freq4
+; 	GLOBAL _mus_freq3
+; 	GLOBAL _mus_freq2
+; 	GLOBAL _mus_freq1
+; 	GLOBAL _mus_done4
+; 	GLOBAL _mus_done3
+; 	GLOBAL _mus_done2
+; 	GLOBAL _mus_done1
+; 	GLOBAL _mus_enabled4
+; 	GLOBAL _mus_enabled1
+; 	GLOBAL _mus_song
+; 	GLOBAL _mus_step
+; 	GLOBAL _mus_paused
+; 	GLOBAL _mus_init
+; 	GLOBAL _mus_setPaused
+; 	GLOBAL _mus_togglePaused
+; 	GLOBAL _mus_disable1
+; 	GLOBAL _mus_disable4
+; 	GLOBAL _mus_restore1
+; 	GLOBAL _mus_restore4
+; 	GLOBAL _mus_is_done
+; 	GLOBAL _mus_update
+; 	GLOBAL _mus_update1
+; 	GLOBAL _mus_update2
+; 	GLOBAL _mus_update3
+; 	GLOBAL _mus_update4
 ;--------------------------------------------------------
 ; special function registers
 ;--------------------------------------------------------
 ;--------------------------------------------------------
 ; ram data
 ;--------------------------------------------------------
-	SECTION "music.c_DATA",BSS
-_mus_paused:
-	DS 1
-_mus_step:
-	DS 1
-_mus_song:
-	DS 2
-_mus_enabled1:
-	DS 1
-_mus_enabled4:
-	DS 1
-_mus_done1:
-	DS 1
-_mus_done2:
-	DS 1
-_mus_done3:
-	DS 1
-_mus_done4:
-	DS 1
-_mus_freq1:
-	DS 2
-_mus_freq2:
-	DS 2
-_mus_freq3:
-	DS 2
-_mus_freq4:
-	DS 1
-_mus_data1:
-	DS 2
-_mus_data2:
-	DS 2
-_mus_data3:
-	DS 2
-_mus_data4:
-	DS 2
-_mus_data1_bak:
-	DS 2
-_mus_data2_bak:
-	DS 2
-_mus_data3_bak:
-	DS 2
-_mus_data4_bak:
-	DS 2
-_mus_wave:
-	DS 2
-_mus_loop1:
-	DS 2
-_mus_loop2:
-	DS 2
-_mus_loop3:
-	DS 2
-_mus_loop4:
-	DS 2
-_mus_octave1:
-	DS 1
-_mus_octave2:
-	DS 1
-_mus_octave3:
-	DS 1
-_mus_octave4:
-	DS 1
-_mus_length1:
-	DS 1
-_mus_length2:
-	DS 1
-_mus_length3:
-	DS 1
-_mus_length4:
-	DS 1
-_mus_volume1:
-	DS 1
-_mus_volume2:
-	DS 1
-_mus_volume3:
-	DS 1
-_mus_volume4:
-	DS 1
-_mus_env1:
-	DS 1
-_mus_env2:
-	DS 1
-_mus_env4:
-	DS 1
-_mus_pan1:
-	DS 1
-_mus_pan2:
-	DS 1
-_mus_pan3:
-	DS 1
-_mus_pan4:
-	DS 1
-_mus_duty1:
-	DS 1
-_mus_duty2:
-	DS 1
-_mus_wait1:
-	DS 1
-_mus_wait2:
-	DS 1
-_mus_wait3:
-	DS 1
-_mus_wait4:
-	DS 1
-_mus_target1:
-	DS 2
-_mus_target2:
-	DS 2
-_mus_target4:
-	DS 1
-_mus_slide1:
-	DS 1
-_mus_slide2:
-	DS 1
-_mus_slide4:
-	DS 1
-_mus_porta1:
-	DS 1
-_mus_porta2:
-	DS 1
-_mus_porta4:
-	DS 1
-_mus_vib_speed1:
-	DS 1
-_mus_vib_speed2:
-	DS 1
-_mus_vib_table1:
-	DS 2
-_mus_vib_table2:
-	DS 2
-_mus_vib_pos1:
-	DS 1
-_mus_vib_pos2:
-	DS 1
-_mus_vib_delay1:
-	DS 1
-_mus_vib_delay2:
-	DS 1
-_mus_noise_step:
-	DS 1
-_mus_po1:
-	DS 1
-_mus_po2:
-	DS 1
-_mus_po3:
-	DS 1
-_mus_macro1:
-	DS 1
-_mus_macro2:
-	DS 1
-_mus_macro3:
-	DS 1
-_mus_macro4:
-	DS 1
-_mus_rep1:
-	DS 8
-_mus_rep2:
-	DS 8
-_mus_rep3:
-	DS 8
-_mus_rep4:
-	DS 8
-_mus_repeats1:
-	DS 4
-_mus_repeats2:
-	DS 4
-_mus_repeats3:
-	DS 4
-_mus_repeats4:
-	DS 4
-_mus_rep_depth1:
-	DS 1
-_mus_rep_depth2:
-	DS 1
-_mus_rep_depth3:
-	DS 1
-_mus_rep_depth4:
-	DS 1
-;--------------------------------------------------------
-; absolute external ram data
-;--------------------------------------------------------
-	SECTION "DABS (ABS)",CODE
-;--------------------------------------------------------
-; global & static initialisations
-;--------------------------------------------------------
-	SECTION "HOME",CODE
-	SECTION "GSINIT",CODE
-	SECTION "GSFINAL",CODE
-	SECTION "GSINIT",CODE
-;--------------------------------------------------------
-; Home
-;--------------------------------------------------------
-	SECTION "music.c_HOME",HOME
-	SECTION "music.c_HOME",HOME
-;--------------------------------------------------------
-; code
-;--------------------------------------------------------
-	SECTION "music.c_CODE",CODE
+	; SECTION "music.c_DATA",WRAM0
+; _mus_paused:
+; 	DS 1
+; _mus_step:
+; 	DS 1
+; _mus_song:
+; 	DS 2
+; _mus_enabled1:
+; 	DS 1
+; _mus_enabled4:
+; 	DS 1
+; _mus_done1:
+; 	DS 1
+; _mus_done2:
+; 	DS 1
+; _mus_done3:
+; 	DS 1
+; _mus_done4:
+; 	DS 1
+; _mus_freq1:
+; 	DS 2
+; _mus_freq2:
+; 	DS 2
+; _mus_freq3:
+; 	DS 2
+; _mus_freq4:
+; 	DS 1
+; _mus_data1:
+; 	DS 2
+; _mus_data2:
+; 	DS 2
+; _mus_data3:
+; 	DS 2
+; _mus_data4:
+; 	DS 2
+; _mus_data1_bak:
+; 	DS 2
+; _mus_data2_bak:
+; 	DS 2
+; _mus_data3_bak:
+; 	DS 2
+; _mus_data4_bak:
+; 	DS 2
+; _mus_wave:
+; 	DS 2
+; _mus_loop1:
+; 	DS 2
+; _mus_loop2:
+; 	DS 2
+; _mus_loop3:
+; 	DS 2
+; _mus_loop4:
+; 	DS 2
+; _mus_octave1:
+; 	DS 1
+; _mus_octave2:
+; 	DS 1
+; _mus_octave3:
+; 	DS 1
+; _mus_octave4:
+; 	DS 1
+; _mus_length1:
+; 	DS 1
+; _mus_length2:
+; 	DS 1
+; _mus_length3:
+; 	DS 1
+; _mus_length4:
+; 	DS 1
+; _mus_volume1:
+; 	DS 1
+; _mus_volume2:
+; 	DS 1
+; _mus_volume3:
+; 	DS 1
+; _mus_volume4:
+; 	DS 1
+; _mus_env1:
+; 	DS 1
+; _mus_env2:
+; 	DS 1
+; _mus_env4:
+; 	DS 1
+; _mus_pan1:
+; 	DS 1
+; _mus_pan2:
+; 	DS 1
+; _mus_pan3:
+; 	DS 1
+; _mus_pan4:
+; 	DS 1
+; _mus_duty1:
+; 	DS 1
+; _mus_duty2:
+; 	DS 1
+; _mus_wait1:
+; 	DS 1
+; _mus_wait2:
+; 	DS 1
+; _mus_wait3:
+; 	DS 1
+; _mus_wait4:
+; 	DS 1
+; _mus_target1:
+; 	DS 2
+; _mus_target2:
+; 	DS 2
+; _mus_target4:
+; 	DS 1
+; _mus_slide1:
+; 	DS 1
+; _mus_slide2:
+; 	DS 1
+; _mus_slide4:
+; 	DS 1
+; _mus_porta1:
+; 	DS 1
+; _mus_porta2:
+; 	DS 1
+; _mus_porta4:
+; 	DS 1
+; _mus_vib_speed1:
+; 	DS 1
+; _mus_vib_speed2:
+; 	DS 1
+; _mus_vib_table1:
+; 	DS 2
+; _mus_vib_table2:
+; 	DS 2
+; _mus_vib_pos1:
+; 	DS 1
+; _mus_vib_pos2:
+; 	DS 1
+; _mus_vib_delay1:
+; 	DS 1
+; _mus_vib_delay2:
+; 	DS 1
+; _mus_noise_step:
+; 	DS 1
+; _mus_po1:
+; 	DS 1
+; _mus_po2:
+; 	DS 1
+; _mus_po3:
+; 	DS 1
+; _mus_macro1:
+; 	DS 1
+; _mus_macro2:
+; 	DS 1
+; _mus_macro3:
+; 	DS 1
+; _mus_macro4:
+; 	DS 1
+; _mus_rep1:
+; 	DS 8
+; _mus_rep2:
+; 	DS 8
+; _mus_rep3:
+; 	DS 8
+; _mus_rep4:
+; 	DS 8
+; _mus_repeats1:
+; 	DS 4
+; _mus_repeats2:
+; 	DS 4
+; _mus_repeats3:
+; 	DS 4
+; _mus_repeats4:
+; 	DS 4
+; _mus_rep_depth1:
+; 	DS 1
+; _mus_rep_depth2:
+; 	DS 1
+; _mus_rep_depth3:
+; 	DS 1
+; _mus_rep_depth4:
+; 	DS 1
+; ;--------------------------------------------------------
+; ; absolute external ram data
+; ;--------------------------------------------------------
+; 	SECTION "DABS (ABS)",ROMX
+; ;--------------------------------------------------------
+; ; global & static initialisations
+; ;--------------------------------------------------------
+; 	SECTION "ROM0",ROMX
+; 	SECTION "GSINIT",ROMX
+; 	SECTION "GSFINAL",ROMX
+; 	SECTION "GSINIT",ROMX
+; ;--------------------------------------------------------
+; ; Home
+; ;--------------------------------------------------------
+; 	SECTION "music.c_ROM0",ROM0
+; 	SECTION "music.c_ROM0",ROM0
+; ;--------------------------------------------------------
+; ; code
+; ;--------------------------------------------------------
+; 	SECTION "music.c_ROMX",ROMX
 ;music.c:46: void mus_init(UBYTE *song_data) {
 ;	---------------------------------
 ; Function mus_init
 ; ---------------------------------
 _mus_init::
-	add	sp, #-3
+	add	sp, -3
 ;music.c:49: NR52_REG = 0x80U; // Enable sound
 	ld	hl, $FF26
 	ld	[hl], $80
@@ -377,7 +377,7 @@ _mus_init::
 	ld	hl, _mus_step
 	ld	[hl], $00
 ;music.c:69: mus_song = song_data;
-	ld	hl,[sp+5]
+	ld	hl,sp+5
 	ld	a, [hl]
 	inc	hl
 	ld	e, [hl]
@@ -386,11 +386,11 @@ _mus_init::
 	inc	hl
 	ld	[hl], e
 ;music.c:70: mus_data1 = mus_loop1 = song_data + ((UWORD*)song_data)[0];
-	ld	hl,[sp+5]
+	ld	hl,sp+5
 	ld	a, [hl]
 	inc	hl
 	ld	e, [hl]
-	ld	hl,[sp+0]
+	ld	hl,sp+0
 	ld	[hl], a
 	inc	hl
 	ld	[hl], e
@@ -401,7 +401,7 @@ _mus_init::
 	inc	de
 	ld	a,[de]
 	ld	b, a
-	ld	hl,[sp+5]
+	ld	hl,sp+5
 	ld	a, [hl]
 	inc	hl
 	ld	h, [hl]
@@ -429,7 +429,7 @@ _mus_init::
 	inc	de
 	ld	a,[de]
 	ld	b, a
-	ld	hl,[sp+5]
+	ld	hl,sp+5
 	ld	a, [hl]
 	inc	hl
 	ld	h, [hl]
@@ -459,7 +459,7 @@ _mus_init::
 	inc	de
 	ld	a,[de]
 	ld	b, a
-	ld	hl,[sp+5]
+	ld	hl,sp+5
 	ld	a, [hl]
 	inc	hl
 	ld	h, [hl]
@@ -489,7 +489,7 @@ _mus_init::
 	inc	de
 	ld	a,[de]
 	ld	b, a
-	ld	hl,[sp+5]
+	ld	hl,sp+5
 	ld	a, [hl]
 	inc	hl
 	ld	h, [hl]
@@ -519,7 +519,7 @@ _mus_init::
 	inc	de
 	ld	a,[de]
 	ld	b, a
-	ld	hl,[sp+5]
+	ld	hl,sp+5
 	ld	a, [hl]
 	inc	hl
 	ld	h, [hl]
@@ -646,12 +646,12 @@ _mus_init::
 	ld	hl, _mus_macro1
 	ld	[hl], $00
 ;music.c:93: for(i = 0U; i != MAX_REPEATS; ++i) {
-	ld	hl,[sp+2]
+	ld	hl,sp+2
 	ld	[hl], $00
 .l00102:
 ;music.c:94: mus_repeats1[i] = 0U;
 	ld	de, _mus_repeats1
-	ld	hl,[sp+2]
+	ld	hl,sp+2
 	ld	l, [hl]
 	ld	h, $00
 	add	hl, de
@@ -661,7 +661,7 @@ _mus_init::
 	ld	[bc], a
 ;music.c:95: mus_repeats2[i] = 0U;
 	ld	de, _mus_repeats2
-	ld	hl,[sp+2]
+	ld	hl,sp+2
 	ld	l, [hl]
 	ld	h, $00
 	add	hl, de
@@ -671,7 +671,7 @@ _mus_init::
 	ld	[bc], a
 ;music.c:96: mus_repeats3[i] = 0U;
 	ld	de, _mus_repeats3
-	ld	hl,[sp+2]
+	ld	hl,sp+2
 	ld	l, [hl]
 	ld	h, $00
 	add	hl, de
@@ -681,7 +681,7 @@ _mus_init::
 	ld	[bc], a
 ;music.c:97: mus_repeats4[i] = 0U;
 	ld	de, _mus_repeats4
-	ld	hl,[sp+2]
+	ld	hl,sp+2
 	ld	l, [hl]
 	ld	h, $00
 	add	hl, de
@@ -690,7 +690,7 @@ _mus_init::
 	xor	a, a
 	ld	[bc], a
 ;music.c:93: for(i = 0U; i != MAX_REPEATS; ++i) {
-	ld	hl,[sp+2]
+	ld	hl,sp+2
 	inc	[hl]
 	ld	a, [hl]
 	sub	a, $04
@@ -700,7 +700,7 @@ _mus_init::
 .l00113:
 .l00104:
 ;music.c:99: }
-	add	sp, #3
+	add	sp, 3
 	ret
 ;music.c:101: void mus_setPaused(UBYTE p) {
 ;	---------------------------------
@@ -709,7 +709,7 @@ _mus_init::
 _mus_setPaused::
 ;music.c:102: mus_paused = p;
 	push	hl
-	ld	hl,[sp+4]
+	ld	hl,sp+4
 	ld	a, [hl]
 	ld	hl, _mus_paused
 	ld	[hl], a
@@ -942,7 +942,7 @@ _mus_update::
 ; Function mus_update1
 ; ---------------------------------
 _mus_update1::
-	add	sp, #-4
+	add	sp, -4
 ;music.c:159: if(mus_slide1 && !(mus_step & 3U)) {
 	ld	hl, _mus_slide1
 	ld	a, [hl]
@@ -960,12 +960,12 @@ _mus_update1::
 	ld	d, h
 	ld	e, l
 	ld	hl, _mus_target1
-	ld	a, (de)
-	sub	a, (hl)
+	ld	a, [de]
+	sub	a, [hl]
 	inc	hl
 	inc	de
-	ld	a, (de)
-	sbc	a, (hl)
+	ld	a, [de]
+	sbc	a, [hl]
 	jp	NC, .l00108
 ;music.c:161: mus_freq1 += mus_slide1;
 	ld	hl, _mus_slide1
@@ -984,12 +984,12 @@ _mus_update1::
 	ld	d, h
 	ld	e, l
 	ld	hl, _mus_freq1
-	ld	a, (de)
-	sub	a, (hl)
+	ld	a, [de]
+	sub	a, [hl]
 	inc	hl
 	inc	de
-	ld	a, (de)
-	sbc	a, (hl)
+	ld	a, [de]
+	sbc	a, [hl]
 	jp	NC, .l00109
 ;music.c:163: mus_freq1 = mus_target1;
 	ld	hl, _mus_target1
@@ -1007,12 +1007,12 @@ _mus_update1::
 	ld	d, h
 	ld	e, l
 	ld	hl, _mus_freq1
-	ld	a, (de)
-	sub	a, (hl)
+	ld	a, [de]
+	sub	a, [hl]
 	inc	hl
 	inc	de
-	ld	a, (de)
-	sbc	a, (hl)
+	ld	a, [de]
+	sbc	a, [hl]
 	jr	NC,.l00109
 ;music.c:167: mus_freq1 -= mus_slide1;
 	ld	hl, _mus_slide1
@@ -1031,12 +1031,12 @@ _mus_update1::
 	ld	d, h
 	ld	e, l
 	ld	hl, _mus_target1
-	ld	a, (de)
-	sub	a, (hl)
+	ld	a, [de]
+	sub	a, [hl]
 	inc	hl
 	inc	de
-	ld	a, (de)
-	sbc	a, (hl)
+	ld	a, [de]
+	sbc	a, [hl]
 	jr	NC,.l00109
 ;music.c:169: mus_freq1 = mus_target1;
 	ld	hl, _mus_target1
@@ -1106,7 +1106,7 @@ _mus_update1::
 	ld	e, a
 	ld	a, d
 	sbc	a, b
-	ld	hl,[sp+1]
+	ld	hl,sp+1
 	ld	[hl], a
 	dec	hl
 	ld	[hl], e
@@ -1162,7 +1162,7 @@ _mus_update1::
 	inc	hl
 	ld	b, [hl]
 	ld	a, [bc]
-	ld	hl,[sp+0]
+	ld	hl,sp+0
 	ld	[hl], a
 	ld	hl, _mus_data1
 	inc	[hl]
@@ -1171,7 +1171,7 @@ _mus_update1::
 	inc	[hl]
 .l00406:
 ;music.c:198: if(note >= MUS_FIRST_NOTE) {
-	ld	hl,[sp+0]
+	ld	hl,sp+0
 	ld	a, [hl]
 	sub	a, $15
 	jp	C, .l00147
@@ -1180,7 +1180,7 @@ _mus_update1::
 	jr	Z,.l00127
 .l00407:
 ;music.c:200: note ^= MUS_HAS_LENGTH;
-	ld	hl,[sp+0]
+	ld	hl,sp+0
 	ld	c, [hl]
 	ld	b, $00
 	ld	a, c
@@ -1213,7 +1213,7 @@ _mus_update1::
 	pop	hl
 .l00128:
 ;music.c:206: if(note == T_WAIT) {
-	ld	hl,[sp+0]
+	ld	hl,sp+0
 	ld	a, [hl]
 	sub	a, $22
 	jr	Z,.l00410
@@ -1224,7 +1224,7 @@ _mus_update1::
 	jp	.l00212
 .l00140:
 ;music.c:208: } else if(note == T_REST) {
-	ld	hl,[sp+0]
+	ld	hl,sp+0
 	ld	a, [hl]
 	sub	a, $21
 	jr	Z,.l00412
@@ -1257,7 +1257,7 @@ _mus_update1::
 	rl	b
 	sla	c
 	rl	b
-	ld	hl,[sp+0]
+	ld	hl,sp+0
 	ld	a, [hl]
 	inc	hl
 	inc	hl
@@ -1287,7 +1287,7 @@ _mus_update1::
 	ld	e, c
 	ld	d, b
 	ld	a,[de]
-	ld	hl,[sp+2]
+	ld	hl,sp+2
 	ld	[hl], a
 	inc	de
 	ld	a,[de]
@@ -1296,7 +1296,7 @@ _mus_update1::
 	ld	hl, _mus_po1
 	ld	c, [hl]
 	ld	b, $00
-	ld	hl,[sp+2]
+	ld	hl,sp+2
 	ld	a, [hl]
 	inc	hl
 	ld	h, [hl]
@@ -1381,7 +1381,7 @@ _mus_update1::
 .l00147:
 ;music.c:230: switch(note) {
 	ld	a, $14
-	ld	hl,[sp+0]
+	ld	hl,sp+0
 	sub	a, [hl]
 	jp	C, .l00210
 	ld	c, [hl]
@@ -1390,7 +1390,7 @@ _mus_update1::
 	add	hl, bc
 	add	hl, bc
 	add	hl, bc
-	jp	[hl]
+	jp	hl
 .l00419:
 	jp	.l00148
 	jp	.l00149
@@ -1860,7 +1860,7 @@ _mus_update1::
 	inc	hl
 	ld	b, [hl]
 	ld	a, [bc]
-	ld	hl,[sp+2]
+	ld	hl,sp+2
 	ld	[hl], a
 	ld	hl, _mus_data1
 	inc	[hl]
@@ -1880,7 +1880,7 @@ _mus_update1::
 	or	a, a
 	jr	NZ,.l00192
 ;music.c:302: mus_repeats1[mus_rep_depth1] = note;
-	ld	hl,[sp+2]
+	ld	hl,sp+2
 	ld	a, [hl]
 	ld	[bc], a
 ;music.c:303: mus_data1 = mus_rep1[mus_rep_depth1];
@@ -2010,7 +2010,7 @@ _mus_update1::
 	inc	hl
 	ld	b, [hl]
 	ld	a, [bc]
-	ld	hl,[sp+2]
+	ld	hl,sp+2
 	ld	[hl], a
 	ld	hl, _mus_data1
 	inc	[hl]
@@ -2032,7 +2032,7 @@ _mus_update1::
 	ld	a, [hl]
 	inc	hl
 	ld	e, [hl]
-	ld	hl,[sp+0]
+	ld	hl,sp+0
 	ld	[hl], a
 	inc	hl
 	ld	[hl], e
@@ -2048,7 +2048,7 @@ _mus_update1::
 	add	hl, de
 	ld	a, l
 	ld	d, h
-	ld	hl,[sp+2]
+	ld	hl,sp+2
 	ld	[hl], a
 	inc	hl
 	ld	[hl], d
@@ -2137,14 +2137,14 @@ _mus_update1::
 ;music.c:344: }
 .l00212:
 ;music.c:346: }
-	add	sp, #4
+	add	sp, 4
 	ret
 ;music.c:348: void mus_update2() {
 ;	---------------------------------
 ; Function mus_update2
 ; ---------------------------------
 _mus_update2::
-	add	sp, #-4
+	add	sp, -4
 ;music.c:352: if(mus_slide2 && !(mus_step & 3U)) {
 	ld	hl, _mus_slide2
 	ld	a, [hl]
@@ -2162,12 +2162,12 @@ _mus_update2::
 	ld	d, h
 	ld	e, l
 	ld	hl, _mus_target2
-	ld	a, (de)
-	sub	a, (hl)
+	ld	a, [de]
+	sub	a, [hl]
 	inc	hl
 	inc	de
-	ld	a, (de)
-	sbc	a, (hl)
+	ld	a, [de]
+	sbc	a, [hl]
 	jp	NC, .l00108
 ;music.c:354: mus_freq2 += mus_slide2;
 	ld	hl, _mus_slide2
@@ -2186,12 +2186,12 @@ _mus_update2::
 	ld	d, h
 	ld	e, l
 	ld	hl, _mus_freq2
-	ld	a, (de)
-	sub	a, (hl)
+	ld	a, [de]
+	sub	a, [hl]
 	inc	hl
 	inc	de
-	ld	a, (de)
-	sbc	a, (hl)
+	ld	a, [de]
+	sbc	a, [hl]
 	jp	NC, .l00109
 ;music.c:356: mus_freq2 = mus_target2;
 	ld	hl, _mus_target2
@@ -2209,12 +2209,12 @@ _mus_update2::
 	ld	d, h
 	ld	e, l
 	ld	hl, _mus_freq2
-	ld	a, (de)
-	sub	a, (hl)
+	ld	a, [de]
+	sub	a, [hl]
 	inc	hl
 	inc	de
-	ld	a, (de)
-	sbc	a, (hl)
+	ld	a, [de]
+	sbc	a, [hl]
 	jr	NC,.l00109
 ;music.c:360: mus_freq2 -= mus_slide2;
 	ld	hl, _mus_slide2
@@ -2233,12 +2233,12 @@ _mus_update2::
 	ld	d, h
 	ld	e, l
 	ld	hl, _mus_target2
-	ld	a, (de)
-	sub	a, (hl)
+	ld	a, [de]
+	sub	a, [hl]
 	inc	hl
 	inc	de
-	ld	a, (de)
-	sbc	a, (hl)
+	ld	a, [de]
+	sbc	a, [hl]
 	jr	NC,.l00109
 ;music.c:362: mus_freq2 = mus_target2;
 	ld	hl, _mus_target2
@@ -2303,7 +2303,7 @@ _mus_update2::
 	ld	e, a
 	ld	a, d
 	sbc	a, b
-	ld	hl,[sp+1]
+	ld	hl,sp+1
 	ld	[hl], a
 	dec	hl
 	ld	[hl], e
@@ -2354,7 +2354,7 @@ _mus_update2::
 	inc	hl
 	ld	b, [hl]
 	ld	a, [bc]
-	ld	hl,[sp+0]
+	ld	hl,sp+0
 	ld	[hl], a
 	ld	hl, _mus_data2
 	inc	[hl]
@@ -2363,7 +2363,7 @@ _mus_update2::
 	inc	[hl]
 .l00336:
 ;music.c:387: if(note >= MUS_FIRST_NOTE) {
-	ld	hl,[sp+0]
+	ld	hl,sp+0
 	ld	a, [hl]
 	sub	a, $15
 	jp	C, .l00135
@@ -2372,7 +2372,7 @@ _mus_update2::
 	jr	Z,.l00123
 .l00337:
 ;music.c:389: note ^= MUS_HAS_LENGTH;
-	ld	hl,[sp+0]
+	ld	hl,sp+0
 	ld	c, [hl]
 	ld	b, $00
 	ld	a, c
@@ -2405,7 +2405,7 @@ _mus_update2::
 	pop	hl
 .l00124:
 ;music.c:395: if(note == T_WAIT) {
-	ld	hl,[sp+0]
+	ld	hl,sp+0
 	ld	a, [hl]
 	sub	a, $22
 	jr	Z,.l00340
@@ -2416,7 +2416,7 @@ _mus_update2::
 	jp	.l00192
 .l00132:
 ;music.c:397: } else if(note == T_REST) {
-	ld	hl,[sp+0]
+	ld	hl,sp+0
 	ld	a, [hl]
 	sub	a, $21
 	jr	Z,.l00342
@@ -2445,7 +2445,7 @@ _mus_update2::
 	rl	b
 	sla	c
 	rl	b
-	ld	hl,[sp+0]
+	ld	hl,sp+0
 	ld	a, [hl]
 	inc	hl
 	inc	hl
@@ -2475,7 +2475,7 @@ _mus_update2::
 	ld	e, c
 	ld	d, b
 	ld	a,[de]
-	ld	hl,[sp+2]
+	ld	hl,sp+2
 	ld	[hl], a
 	inc	de
 	ld	a,[de]
@@ -2484,7 +2484,7 @@ _mus_update2::
 	ld	hl, _mus_po2
 	ld	c, [hl]
 	ld	b, $00
-	ld	hl,[sp+2]
+	ld	hl,sp+2
 	ld	a, [hl]
 	inc	hl
 	ld	h, [hl]
@@ -2541,7 +2541,7 @@ _mus_update2::
 .l00135:
 ;music.c:413: switch(note) {
 	ld	a, $14
-	ld	hl,[sp+0]
+	ld	hl,sp+0
 	sub	a, [hl]
 	jp	C, .l00190
 	ld	c, [hl]
@@ -2550,7 +2550,7 @@ _mus_update2::
 	add	hl, bc
 	add	hl, bc
 	add	hl, bc
-	jp	[hl]
+	jp	hl
 .l00347:
 	jp	.l00136
 	jp	.l00137
@@ -3008,7 +3008,7 @@ _mus_update2::
 	inc	hl
 	ld	b, [hl]
 	ld	a, [bc]
-	ld	hl,[sp+2]
+	ld	hl,sp+2
 	ld	[hl], a
 	ld	hl, _mus_data2
 	inc	[hl]
@@ -3028,7 +3028,7 @@ _mus_update2::
 	or	a, a
 	jr	NZ,.l00172
 ;music.c:485: mus_repeats2[mus_rep_depth2] = note;
-	ld	hl,[sp+2]
+	ld	hl,sp+2
 	ld	a, [hl]
 	ld	[bc], a
 ;music.c:486: mus_data2 = mus_rep2[mus_rep_depth2];
@@ -3158,7 +3158,7 @@ _mus_update2::
 	inc	hl
 	ld	b, [hl]
 	ld	a, [bc]
-	ld	hl,[sp+2]
+	ld	hl,sp+2
 	ld	[hl], a
 	ld	hl, _mus_data2
 	inc	[hl]
@@ -3180,7 +3180,7 @@ _mus_update2::
 	ld	a, [hl]
 	inc	hl
 	ld	e, [hl]
-	ld	hl,[sp+0]
+	ld	hl,sp+0
 	ld	[hl], a
 	inc	hl
 	ld	[hl], e
@@ -3196,7 +3196,7 @@ _mus_update2::
 	add	hl, de
 	ld	a, l
 	ld	d, h
-	ld	hl,[sp+2]
+	ld	hl,sp+2
 	ld	[hl], a
 	inc	hl
 	ld	[hl], d
@@ -3285,14 +3285,14 @@ _mus_update2::
 ;music.c:527: }
 .l00192:
 ;music.c:529: }
-	add	sp, #4
+	add	sp, 4
 	ret
 ;music.c:531: void mus_update3() {
 ;	---------------------------------
 ; Function mus_update3
 ; ---------------------------------
 _mus_update3::
-	add	sp, #-5
+	add	sp, -5
 ;music.c:534: if(mus_wait3) {
 	ld	hl, _mus_wait3
 	ld	a, [hl]
@@ -3314,7 +3314,7 @@ _mus_update3::
 	inc	hl
 	ld	b, [hl]
 	ld	a, [bc]
-	ld	hl,[sp+4]
+	ld	hl,sp+4
 	ld	[hl], a
 	ld	hl, _mus_data3
 	inc	[hl]
@@ -3323,7 +3323,7 @@ _mus_update3::
 	inc	[hl]
 .l00213:
 ;music.c:541: if(note >= MUS_FIRST_NOTE) {
-	ld	hl,[sp+4]
+	ld	hl,sp+4
 	ld	a, [hl]
 	sub	a, $15
 	jp	C, .l00115
@@ -3332,7 +3332,7 @@ _mus_update3::
 	jr	Z,.l00106
 .l00214:
 ;music.c:543: note ^= MUS_HAS_LENGTH;
-	ld	hl,[sp+4]
+	ld	hl,sp+4
 	ld	c, [hl]
 	ld	b, $00
 	ld	a, c
@@ -3365,7 +3365,7 @@ _mus_update3::
 	pop	hl
 .l00107:
 ;music.c:548: if(note == T_WAIT) {
-	ld	hl,[sp+4]
+	ld	hl,sp+4
 	ld	a, [hl]
 	sub	a, $22
 	jr	Z,.l00217
@@ -3376,7 +3376,7 @@ _mus_update3::
 	jp	.l00151
 .l00112:
 ;music.c:550: } else if(note == T_REST) {
-	ld	hl,[sp+4]
+	ld	hl,sp+4
 	ld	a, [hl]
 	sub	a, $21
 	jr	Z,.l00219
@@ -3405,9 +3405,9 @@ _mus_update3::
 	rl	b
 	sla	c
 	rl	b
-	ld	hl,[sp+4]
+	ld	hl,sp+4
 	ld	a, [hl]
-	ld	hl,[sp+0]
+	ld	hl,sp+0
 	ld	[hl], a
 	inc	hl
 	ld	[hl], $00
@@ -3431,7 +3431,7 @@ _mus_update3::
 	ld	e, c
 	ld	d, b
 	ld	a,[de]
-	ld	hl,[sp+0]
+	ld	hl,sp+0
 	ld	[hl], a
 	inc	de
 	ld	a,[de]
@@ -3482,7 +3482,7 @@ _mus_update3::
 .l00115:
 ;music.c:563: switch(note) {
 	ld	a, $14
-	ld	hl,[sp+4]
+	ld	hl,sp+4
 	sub	a, [hl]
 	jp	C, .l00149
 	ld	c, [hl]
@@ -3491,7 +3491,7 @@ _mus_update3::
 	add	hl, bc
 	add	hl, bc
 	add	hl, bc
-	jp	[hl]
+	jp	hl
 .l00224:
 	jp	.l00116
 	jp	.l00117
@@ -3609,17 +3609,17 @@ _mus_update3::
 	ld	b, $00
 	ld	a, c
 	and	a, $BB
-	ld	hl,[sp+0]
+	ld	hl,sp+0
 	ld	[hl], a
 	inc	hl
 	ld	[hl], $00
 	push	hl
 	ld	hl, _mus_pan3
 	ld	a, [hl]
-	ld	hl,[sp+6]
+	ld	hl,sp+6
 	ld	[hl], a
 	pop	hl
-	ld	hl,[sp+4]
+	ld	hl,sp+4
 	sla	[hl]
 	sla	[hl]
 	ld	a, [hl]
@@ -3659,7 +3659,7 @@ _mus_update3::
 	inc	[hl]
 ;music.c:597: mus_rep3[mus_rep_depth3] = mus_data3;
 	ld	a, [hl]
-	ld	hl,[sp+2]
+	ld	hl,sp+2
 	ld	[hl], a
 	inc	hl
 	ld	[hl], $00
@@ -3675,7 +3675,7 @@ _mus_update3::
 	add	hl, de
 	ld	a, l
 	ld	d, h
-	ld	hl,[sp+2]
+	ld	hl,sp+2
 	ld	[hl], a
 	inc	hl
 	ld	[hl], d
@@ -3701,7 +3701,7 @@ _mus_update3::
 	inc	hl
 	ld	b, [hl]
 	ld	a, [bc]
-	ld	hl,[sp+2]
+	ld	hl,sp+2
 	ld	[hl], a
 	ld	hl, _mus_data3
 	inc	[hl]
@@ -3721,7 +3721,7 @@ _mus_update3::
 	or	a, a
 	jr	NZ,.l00131
 ;music.c:602: mus_repeats3[mus_rep_depth3] = note;
-	ld	hl,[sp+2]
+	ld	hl,sp+2
 	ld	a, [hl]
 	ld	[bc], a
 ;music.c:603: mus_data3 = mus_rep3[mus_rep_depth3];
@@ -3862,7 +3862,7 @@ _mus_update3::
 	ld	hl, $FF1A
 	ld	[hl], $00
 ;music.c:626: memcpy(0xFF30, mus_wave + (note << 4), 16U);
-	ld	hl,[sp+2]
+	ld	hl,sp+2
 	ld	[hl], c
 	inc	hl
 	ld	[hl], $00
@@ -3888,7 +3888,7 @@ _mus_update3::
 	add	hl, de
 	ld	a, l
 	ld	d, h
-	ld	hl,[sp+2]
+	ld	hl,sp+2
 	ld	[hl], a
 	inc	hl
 	ld	[hl], d
@@ -3902,7 +3902,7 @@ _mus_update3::
 	ld	hl, $FF30
 	push	hl
 	call	_memcpy
-	add	sp, #6
+	add	sp, 6
 ;music.c:627: NR30_REG = 0x80U;
 	ld	hl, $FF1A
 	ld	[hl], $80
@@ -3917,7 +3917,7 @@ _mus_update3::
 	inc	hl
 	ld	b, [hl]
 	ld	a, [bc]
-	ld	hl,[sp+2]
+	ld	hl,sp+2
 	ld	[hl], a
 	ld	hl, _mus_data3
 	inc	[hl]
@@ -3939,7 +3939,7 @@ _mus_update3::
 	ld	a, [hl]
 	inc	hl
 	ld	e, [hl]
-	ld	hl,[sp+0]
+	ld	hl,sp+0
 	ld	[hl], a
 	inc	hl
 	ld	[hl], e
@@ -3955,7 +3955,7 @@ _mus_update3::
 	add	hl, de
 	ld	a, l
 	ld	d, h
-	ld	hl,[sp+2]
+	ld	hl,sp+2
 	ld	[hl], a
 	inc	hl
 	ld	[hl], d
@@ -4044,14 +4044,14 @@ _mus_update3::
 ;music.c:648: }
 .l00151:
 ;music.c:650: }
-	add	sp, #5
+	add	sp, 5
 	ret
 ;music.c:652: void mus_update4() {
 ;	---------------------------------
 ; Function mus_update4
 ; ---------------------------------
 _mus_update4::
-	add	sp, #-6
+	add	sp, -6
 ;music.c:655: if(mus_slide4 && !(mus_step & 3U)) {
 	ld	hl, _mus_slide4
 	ld	a, [hl]
@@ -4148,7 +4148,7 @@ _mus_update4::
 	inc	hl
 	ld	b, [hl]
 	ld	a, [bc]
-	ld	hl,[sp+0]
+	ld	hl,sp+0
 	ld	[hl], a
 	ld	hl, _mus_data4
 	inc	[hl]
@@ -4157,7 +4157,7 @@ _mus_update4::
 	inc	[hl]
 .l00329:
 ;music.c:678: if(note >= MUS_FIRST_NOTE) {
-	ld	hl,[sp+0]
+	ld	hl,sp+0
 	ld	a, [hl]
 	sub	a, $15
 	jp	C, .l00140
@@ -4166,7 +4166,7 @@ _mus_update4::
 	jr	Z,.l00120
 .l00330:
 ;music.c:680: note ^= MUS_HAS_LENGTH;
-	ld	hl,[sp+0]
+	ld	hl,sp+0
 	ld	c, [hl]
 	ld	b, $00
 	ld	a, c
@@ -4199,7 +4199,7 @@ _mus_update4::
 	pop	hl
 .l00121:
 ;music.c:685: if(note == T_WAIT) {
-	ld	hl,[sp+0]
+	ld	hl,sp+0
 	ld	a, [hl]
 	sub	a, $22
 	jr	Z,.l00333
@@ -4210,7 +4210,7 @@ _mus_update4::
 	jp	.l00185
 .l00133:
 ;music.c:687: } else if(note == T_REST) {
-	ld	hl,[sp+0]
+	ld	hl,sp+0
 	ld	a, [hl]
 	sub	a, $21
 	jr	Z,.l00335
@@ -4242,7 +4242,7 @@ _mus_update4::
 	rl	b
 	sla	c
 	rl	b
-	ld	hl,[sp+0]
+	ld	hl,sp+0
 	ld	e, [hl]
 	ld	d, $00
 	inc	hl
@@ -4334,7 +4334,7 @@ _mus_update4::
 .l00140:
 ;music.c:709: switch(note) {
 	ld	a, $14
-	ld	hl,[sp+0]
+	ld	hl,sp+0
 	sub	a, [hl]
 	jp	C, .l00183
 	ld	c, [hl]
@@ -4343,7 +4343,7 @@ _mus_update4::
 	add	hl, bc
 	add	hl, bc
 	add	hl, bc
-	jp	[hl]
+	jp	hl
 .l00340:
 	jp	.l00141
 	jp	.l00142
@@ -4625,7 +4625,7 @@ _mus_update4::
 	inc	hl
 	ld	b, [hl]
 	ld	a, [bc]
-	ld	hl,[sp+3]
+	ld	hl,sp+3
 	ld	[hl], a
 	ld	hl, _mus_data4
 	inc	[hl]
@@ -4645,7 +4645,7 @@ _mus_update4::
 	or	a, a
 	jr	NZ,.l00165
 ;music.c:761: mus_repeats4[mus_rep_depth4] = note;
-	ld	hl,[sp+3]
+	ld	hl,sp+3
 	ld	a, [hl]
 	ld	[bc], a
 ;music.c:762: mus_data4 = mus_rep4[mus_rep_depth4];
@@ -4780,7 +4780,7 @@ _mus_update4::
 	inc	hl
 	ld	b, [hl]
 	ld	a, [bc]
-	ld	hl,[sp+1]
+	ld	hl,sp+1
 	ld	[hl], a
 	ld	hl, _mus_data4
 	inc	[hl]
@@ -4802,11 +4802,11 @@ _mus_update4::
 	ld	a, [hl]
 	inc	hl
 	ld	e, [hl]
-	ld	hl,[sp+4]
+	ld	hl,sp+4
 	ld	[hl], a
 	inc	hl
 	ld	[hl], e
-	ld	hl,[sp+1]
+	ld	hl,sp+1
 	ld	a,[hl]
 	inc	hl
 	ld	[hl], $00
@@ -4818,7 +4818,7 @@ _mus_update4::
 	add	hl, de
 	ld	a, l
 	ld	d, h
-	ld	hl,[sp+1]
+	ld	hl,sp+1
 	ld	[hl], a
 	inc	hl
 	ld	[hl], d
@@ -4911,7 +4911,7 @@ _mus_update4::
 ;music.c:803: }
 .l00185:
 ;music.c:805: }
-	add	sp, #6
+	add	sp, 6
 	ret
-	SECTION "music.c_CODE",CODE
-	SECTION "CABS (ABS)",CODE
+	; SECTION "music.c_ROMX",ROMX
+	; SECTION "CABS (ABS)",ROMX
