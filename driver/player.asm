@@ -1589,13 +1589,13 @@ _main::
 	call	_disable_interrupts
 ;player.c:30: DISPLAY_OFF;
 	call	_display_off
-;player.c:32: selection = 0U;
-	ld	hl, #_selection
-	ld	(hl), #0x00
-;player.c:33: paused = 0U;
-	ld	hl, #_paused
-	ld	(hl), #0x00
-;player.c:36: mus_init(&song_data);
+; ;player.c:32: selection = 0U;
+; 	ld	hl, #_selection
+; 	ld	(hl), #0x00
+; ;player.c:33: paused = 0U;
+; 	ld	hl, #_paused
+; 	ld	(hl), #0x00
+; ;player.c:36: mus_init(&song_data);
 	ld	hl, #_song_data
 	push	hl
 	call	_mus_init
@@ -1605,213 +1605,213 @@ _main::
 	push	hl
 	call	_add_TIM
 	add	sp, #2
-;player.c:40: set_bkg_data(0U, background_data_length, background_data);
-	ld	hl, #_background_data
-	push	hl
-	ld	a, #0x30
-	push	af
-	inc	sp
-	xor	a, a
-	push	af
-	inc	sp
-	call	_set_bkg_data
-	add	sp, #4
-;player.c:41: set_bkg_tiles(0U, 0U, background_tiles_width, background_tiles_height, background_tiles);
-	ld	hl, #_background_tiles
-	push	hl
-	ld	a, #0x12
-	push	af
-	inc	sp
-	ld	a, #0x14
-	push	af
-	inc	sp
-	xor	a, a
-	push	af
-	inc	sp
-	xor	a, a
-	push	af
-	inc	sp
-	call	_set_bkg_tiles
-	add	sp, #6
-;player.c:43: set_sprite_data(0U, sprites_data_length, sprites_data);
-	ld	hl, #_sprites_data
-	push	hl
-	ld	a, #0x14
-	push	af
-	inc	sp
-	xor	a, a
-	push	af
-	inc	sp
-	call	_set_sprite_data
-	add	sp, #4
-;player.c:45: set_sprite_tile(0U, 4U);
-	ld	a, #0x04
-	push	af
-	inc	sp
-	xor	a, a
-	push	af
-	inc	sp
-	call	_set_sprite_tile
-	add	sp, #2
-;player.c:46: set_sprite_tile(1U, 6U);
-	ld	a, #0x06
-	push	af
-	inc	sp
-	ld	a, #0x01
-	push	af
-	inc	sp
-	call	_set_sprite_tile
-	add	sp, #2
-;player.c:48: set_sprite_tile(2U, 8U);
-	ld	a, #0x08
-	push	af
-	inc	sp
-	ld	a, #0x02
-	push	af
-	inc	sp
-	call	_set_sprite_tile
-	add	sp, #2
-;player.c:49: set_sprite_tile(3U, 10U);
-	ld	a, #0x0a
-	push	af
-	inc	sp
-	ld	a, #0x03
-	push	af
-	inc	sp
-	call	_set_sprite_tile
-	add	sp, #2
-;player.c:51: set_sprite_tile(4U, 16U);
-	ld	a, #0x10
-	push	af
-	inc	sp
-	ld	a, #0x04
-	push	af
-	inc	sp
-	call	_set_sprite_tile
-	add	sp, #2
-;player.c:52: set_sprite_tile(5U, 18U);
-	ld	a, #0x12
-	push	af
-	inc	sp
-	ld	a, #0x05
-	push	af
-	inc	sp
-	call	_set_sprite_tile
-	add	sp, #2
-;player.c:54: set_sprite_tile(6U, 0U);
-	xor	a, a
-	push	af
-	inc	sp
-	ld	a, #0x06
-	push	af
-	inc	sp
-	call	_set_sprite_tile
-	add	sp, #2
-;player.c:55: set_sprite_tile(7U, 2U);
-	ld	a, #0x02
-	push	af
-	inc	sp
-	ld	a, #0x07
-	push	af
-	inc	sp
-	call	_set_sprite_tile
-	add	sp, #2
-;player.c:57: move_sprite(0U, 56U, 104U);
-	ld	a, #0x68
-	push	af
-	inc	sp
-	ld	a, #0x38
-	push	af
-	inc	sp
-	xor	a, a
-	push	af
-	inc	sp
-	call	_move_sprite
-	add	sp, #3
-;player.c:58: move_sprite(1U, 64U, 104U);
-	ld	a, #0x68
-	push	af
-	inc	sp
-	ld	a, #0x40
-	push	af
-	inc	sp
-	ld	a, #0x01
-	push	af
-	inc	sp
-	call	_move_sprite
-	add	sp, #3
-;player.c:60: move_sprite(2U, 80U, 104U);
-	ld	a, #0x68
-	push	af
-	inc	sp
-	ld	a, #0x50
-	push	af
-	inc	sp
-	ld	a, #0x02
-	push	af
-	inc	sp
-	call	_move_sprite
-	add	sp, #3
-;player.c:61: move_sprite(3U, 88U, 104U);
-	ld	a, #0x68
-	push	af
-	inc	sp
-	ld	a, #0x58
-	push	af
-	inc	sp
-	ld	a, #0x03
-	push	af
-	inc	sp
-	call	_move_sprite
-	add	sp, #3
-;player.c:63: move_sprite(4U, 104U, 104U);
-	ld	a, #0x68
-	push	af
-	inc	sp
-	ld	a, #0x68
-	push	af
-	inc	sp
-	ld	a, #0x04
-	push	af
-	inc	sp
-	call	_move_sprite
-	add	sp, #3
-;player.c:64: move_sprite(5U, 112U, 104U);
-	ld	a, #0x68
-	push	af
-	inc	sp
-	ld	a, #0x70
-	push	af
-	inc	sp
-	ld	a, #0x05
-	push	af
-	inc	sp
-	call	_move_sprite
-	add	sp, #3
-;player.c:66: move_sprite(6U, 56U, 103U);
-	ld	a, #0x67
-	push	af
-	inc	sp
-	ld	a, #0x38
-	push	af
-	inc	sp
-	ld	a, #0x06
-	push	af
-	inc	sp
-	call	_move_sprite
-	add	sp, #3
-;player.c:67: move_sprite(7U, 64U, 103U);
-	ld	a, #0x67
-	push	af
-	inc	sp
-	ld	a, #0x40
-	push	af
-	inc	sp
-	ld	a, #0x07
-	push	af
-	inc	sp
-	call	_move_sprite
-	add	sp, #3
+; ;player.c:40: set_bkg_data(0U, background_data_length, background_data);
+; 	ld	hl, #_background_data
+; 	push	hl
+; 	ld	a, #0x30
+; 	push	af
+; 	inc	sp
+; 	xor	a, a
+; 	push	af
+; 	inc	sp
+; 	call	_set_bkg_data
+; 	add	sp, #4
+; ;player.c:41: set_bkg_tiles(0U, 0U, background_tiles_width, background_tiles_height, background_tiles);
+; 	ld	hl, #_background_tiles
+; 	push	hl
+; 	ld	a, #0x12
+; 	push	af
+; 	inc	sp
+; 	ld	a, #0x14
+; 	push	af
+; 	inc	sp
+; 	xor	a, a
+; 	push	af
+; 	inc	sp
+; 	xor	a, a
+; 	push	af
+; 	inc	sp
+; 	call	_set_bkg_tiles
+; 	add	sp, #6
+; ;player.c:43: set_sprite_data(0U, sprites_data_length, sprites_data);
+; 	ld	hl, #_sprites_data
+; 	push	hl
+; 	ld	a, #0x14
+; 	push	af
+; 	inc	sp
+; 	xor	a, a
+; 	push	af
+; 	inc	sp
+; 	call	_set_sprite_data
+; 	add	sp, #4
+; ;player.c:45: set_sprite_tile(0U, 4U);
+; 	ld	a, #0x04
+; 	push	af
+; 	inc	sp
+; 	xor	a, a
+; 	push	af
+; 	inc	sp
+; 	call	_set_sprite_tile
+; 	add	sp, #2
+; ;player.c:46: set_sprite_tile(1U, 6U);
+; 	ld	a, #0x06
+; 	push	af
+; 	inc	sp
+; 	ld	a, #0x01
+; 	push	af
+; 	inc	sp
+; 	call	_set_sprite_tile
+; 	add	sp, #2
+; ;player.c:48: set_sprite_tile(2U, 8U);
+; 	ld	a, #0x08
+; 	push	af
+; 	inc	sp
+; 	ld	a, #0x02
+; 	push	af
+; 	inc	sp
+; 	call	_set_sprite_tile
+; 	add	sp, #2
+; ;player.c:49: set_sprite_tile(3U, 10U);
+; 	ld	a, #0x0a
+; 	push	af
+; 	inc	sp
+; 	ld	a, #0x03
+; 	push	af
+; 	inc	sp
+; 	call	_set_sprite_tile
+; 	add	sp, #2
+; ;player.c:51: set_sprite_tile(4U, 16U);
+; 	ld	a, #0x10
+; 	push	af
+; 	inc	sp
+; 	ld	a, #0x04
+; 	push	af
+; 	inc	sp
+; 	call	_set_sprite_tile
+; 	add	sp, #2
+; ;player.c:52: set_sprite_tile(5U, 18U);
+; 	ld	a, #0x12
+; 	push	af
+; 	inc	sp
+; 	ld	a, #0x05
+; 	push	af
+; 	inc	sp
+; 	call	_set_sprite_tile
+; 	add	sp, #2
+; ;player.c:54: set_sprite_tile(6U, 0U);
+; 	xor	a, a
+; 	push	af
+; 	inc	sp
+; 	ld	a, #0x06
+; 	push	af
+; 	inc	sp
+; 	call	_set_sprite_tile
+; 	add	sp, #2
+; ;player.c:55: set_sprite_tile(7U, 2U);
+; 	ld	a, #0x02
+; 	push	af
+; 	inc	sp
+; 	ld	a, #0x07
+; 	push	af
+; 	inc	sp
+; 	call	_set_sprite_tile
+; 	add	sp, #2
+; ;player.c:57: move_sprite(0U, 56U, 104U);
+; 	ld	a, #0x68
+; 	push	af
+; 	inc	sp
+; 	ld	a, #0x38
+; 	push	af
+; 	inc	sp
+; 	xor	a, a
+; 	push	af
+; 	inc	sp
+; 	call	_move_sprite
+; 	add	sp, #3
+; ;player.c:58: move_sprite(1U, 64U, 104U);
+; 	ld	a, #0x68
+; 	push	af
+; 	inc	sp
+; 	ld	a, #0x40
+; 	push	af
+; 	inc	sp
+; 	ld	a, #0x01
+; 	push	af
+; 	inc	sp
+; 	call	_move_sprite
+; 	add	sp, #3
+; ;player.c:60: move_sprite(2U, 80U, 104U);
+; 	ld	a, #0x68
+; 	push	af
+; 	inc	sp
+; 	ld	a, #0x50
+; 	push	af
+; 	inc	sp
+; 	ld	a, #0x02
+; 	push	af
+; 	inc	sp
+; 	call	_move_sprite
+; 	add	sp, #3
+; ;player.c:61: move_sprite(3U, 88U, 104U);
+; 	ld	a, #0x68
+; 	push	af
+; 	inc	sp
+; 	ld	a, #0x58
+; 	push	af
+; 	inc	sp
+; 	ld	a, #0x03
+; 	push	af
+; 	inc	sp
+; 	call	_move_sprite
+; 	add	sp, #3
+; ;player.c:63: move_sprite(4U, 104U, 104U);
+; 	ld	a, #0x68
+; 	push	af
+; 	inc	sp
+; 	ld	a, #0x68
+; 	push	af
+; 	inc	sp
+; 	ld	a, #0x04
+; 	push	af
+; 	inc	sp
+; 	call	_move_sprite
+; 	add	sp, #3
+; ;player.c:64: move_sprite(5U, 112U, 104U);
+; 	ld	a, #0x68
+; 	push	af
+; 	inc	sp
+; 	ld	a, #0x70
+; 	push	af
+; 	inc	sp
+; 	ld	a, #0x05
+; 	push	af
+; 	inc	sp
+; 	call	_move_sprite
+; 	add	sp, #3
+; ;player.c:66: move_sprite(6U, 56U, 103U);
+; 	ld	a, #0x67
+; 	push	af
+; 	inc	sp
+; 	ld	a, #0x38
+; 	push	af
+; 	inc	sp
+; 	ld	a, #0x06
+; 	push	af
+; 	inc	sp
+; 	call	_move_sprite
+; 	add	sp, #3
+; ;player.c:67: move_sprite(7U, 64U, 103U);
+; 	ld	a, #0x67
+; 	push	af
+; 	inc	sp
+; 	ld	a, #0x40
+; 	push	af
+; 	inc	sp
+; 	ld	a, #0x07
+; 	push	af
+; 	inc	sp
+; 	call	_move_sprite
+; 	add	sp, #3
 ;player.c:69: SHOW_BKG;
 	ld	de, #0xff40
 	ld	a,(de)
@@ -1858,290 +1858,290 @@ _main::
 	inc	sp
 	call	_set_interrupts
 	inc	sp
-;player.c:78: joystate = oldjoystate = 0U;
-	ld	hl, #_oldjoystate
-	ld	(hl), #0x00
-	ld	hl, #_joystate
-	ld	(hl), #0x00
+; ;player.c:78: joystate = oldjoystate = 0U;
+; 	ld	hl, #_oldjoystate
+; 	ld	(hl), #0x00
+; 	ld	hl, #_joystate
+; 	ld	(hl), #0x00
 ;player.c:80: while(1U) {
 00130$:
-;player.c:81: oldjoystate = joystate;
-	push	hl
-	ld	hl, #_joystate
-	ld	a, (hl)
-	ld	hl, #_oldjoystate
-	ld	(hl), a
-	pop	hl
-;player.c:82: joystate = joypad();
-	call	_joypad
-	ld	hl, #_joystate
-	ld	(hl), e
-;player.c:84: if(CLICKED(J_START)) {
-	ld	a, (hl)
-	rlca
-	jr	NC,00102$
-	ld	hl, #_joystate
-	ld	c, (hl)
-	ld	b, #0x00
-	ld	a, c
-	and	a, #0x80
-	ld	c, a
-	ld	b, #0x00
-	ld	hl, #_oldjoystate
-	ld	e, (hl)
-	ld	d, #0x00
-	ld	a, e
-	and	a, #0x80
-	ld	e, a
-	ld	d, #0x00
-	ld	a, c
-	sub	a, e
-	jr	NZ,00215$
-	ld	a, b
-	sub	a, d
-	jr	Z,00102$
-00215$:
-;player.c:85: togglePaused();
-	call	_togglePaused
-00102$:
-;player.c:88: if(CLICKED(J_LEFT)) {
-	ld	hl, #_joystate
-	ld	a, (hl)
-	bit	1, a
-	jp	Z,00108$
-	ld	hl, #_joystate
-	ld	c, (hl)
-	ld	b, #0x00
-	ld	a, c
-	and	a, #0x02
-	ld	c, a
-	ld	b, #0x00
-	ld	hl, #_oldjoystate
-	ld	e, (hl)
-	ld	d, #0x00
-	ld	a, e
-	and	a, #0x02
-	ld	e, a
-	ld	d, #0x00
-	ld	a, c
-	sub	a, e
-	jr	NZ,00217$
-	ld	a, b
-	sub	a, d
-	jp	Z,00108$
-00217$:
-;player.c:89: if(selection == 0U) {
-	ld	hl, #_selection
-	ld	a, (hl)
-	or	a, a
-	jr	NZ,00105$
-;player.c:90: selection = 2U;
-	ld	(hl), #0x02
-	jr	00106$
-00105$:
-;player.c:92: selection--;
-	ld	hl, #_selection
-	dec	(hl)
-00106$:
-;player.c:94: move_sprite(6U, 56U + selection*24U, 103U);
-	ld	hl, #_selection
-	ld	a, (hl)
-	ld	c, a
-	add	a, a
-	add	a, c
-	add	a, a
-	add	a, a
-	add	a, a
-	add	a, #0x38
-	ld	b, a
-	ld	a, #0x67
-	push	af
-	inc	sp
-	push	bc
-	inc	sp
-	ld	a, #0x06
-	push	af
-	inc	sp
-	call	_move_sprite
-	add	sp, #3
-;player.c:95: move_sprite(7U, 64U + selection*24U, 103U);
-	ld	hl, #_selection
-	ld	a, (hl)
-	ld	c, a
-	add	a, a
-	add	a, c
-	add	a, a
-	add	a, a
-	add	a, a
-	add	a, #0x40
-	ld	b, a
-	ld	a, #0x67
-	push	af
-	inc	sp
-	push	bc
-	inc	sp
-	ld	a, #0x07
-	push	af
-	inc	sp
-	call	_move_sprite
-	add	sp, #3
-00108$:
-;player.c:98: if(CLICKED(J_RIGHT)) {
-	ld	hl, #_joystate
-	ld	a, (hl)
-	rrca
-	jp	NC,00114$
-	ld	hl, #_joystate
-	ld	c, (hl)
-	ld	b, #0x00
-	ld	a, c
-	and	a, #0x01
-	ld	c, a
-	ld	b, #0x00
-	ld	hl, #_oldjoystate
-	ld	e, (hl)
-	ld	d, #0x00
-	ld	a, e
-	and	a, #0x01
-	ld	e, a
-	ld	d, #0x00
-	ld	a, c
-	sub	a, e
-	jr	NZ,00219$
-	ld	a, b
-	sub	a, d
-	jp	Z,00114$
-00219$:
-;player.c:99: if(selection == 2U) {
-	ld	hl, #_selection
-	ld	a, (hl)
-	sub	a, #0x02
-	jr	NZ,00111$
-;player.c:100: selection = 0U;
-	ld	hl, #_selection
-	ld	(hl), #0x00
-	jr	00112$
-00111$:
-;player.c:102: selection++;
-	ld	hl, #_selection
-	inc	(hl)
-00112$:
-;player.c:104: move_sprite(6U, 56U + selection*24U, 103U);
-	ld	hl, #_selection
-	ld	a, (hl)
-	ld	c, a
-	add	a, a
-	add	a, c
-	add	a, a
-	add	a, a
-	add	a, a
-	add	a, #0x38
-	ld	b, a
-	ld	a, #0x67
-	push	af
-	inc	sp
-	push	bc
-	inc	sp
-	ld	a, #0x06
-	push	af
-	inc	sp
-	call	_move_sprite
-	add	sp, #3
-;player.c:105: move_sprite(7U, 64U + selection*24U, 103U);
-	ld	hl, #_selection
-	ld	a, (hl)
-	ld	c, a
-	add	a, a
-	add	a, c
-	add	a, a
-	add	a, a
-	add	a, a
-	add	a, #0x40
-	ld	b, a
-	ld	a, #0x67
-	push	af
-	inc	sp
-	push	bc
-	inc	sp
-	ld	a, #0x07
-	push	af
-	inc	sp
-	call	_move_sprite
-	add	sp, #3
-00114$:
-;player.c:108: if(CLICKED(J_A)) {
-	ld	hl, #_joystate
-	ld	a, (hl)
-	bit	4, a
-	jp	Z,00122$
-	ld	hl, #_joystate
-	ld	c, (hl)
-	ld	b, #0x00
-	ld	a, c
-	and	a, #0x10
-	ld	c, a
-	ld	b, #0x00
-	ld	hl, #_oldjoystate
-	ld	e, (hl)
-	ld	d, #0x00
-	ld	a, e
-	and	a, #0x10
-	ld	e, a
-	ld	d, #0x00
-	ld	a, c
-	sub	a, e
-	jr	NZ,00223$
-	ld	a, b
-	sub	a, d
-	jr	Z,00122$
-00223$:
-;player.c:109: if(selection == 0U) {
-	ld	hl, #_selection
-	ld	a, (hl)
-	or	a, a
-	jr	NZ,00119$
-;player.c:110: disable_interrupts();
-	call	_disable_interrupts
-;player.c:111: mus_init(&song_data);
-	ld	hl, #_song_data
-	push	hl
-	call	_mus_init
-	add	sp, #2
-;player.c:112: enable_interrupts();
-	call	_enable_interrupts
-;player.c:113: paused = 1U;
-	ld	hl, #_paused
-	ld	(hl), #0x01
-;player.c:114: togglePaused();
-	call	_togglePaused
-	jr	00122$
-00119$:
-;player.c:116: else if(selection == 1U) {
-	ld	hl, #_selection
-	ld	a, (hl)
-	dec	a
-	jr	NZ,00122$
-;player.c:117: togglePaused();
-	call	_togglePaused
-00122$:
-;player.c:121: if(ISDOWN(J_A) && selection == 2U) {
-	ld	hl, #_joystate
-	ld	a, (hl)
-	bit	4, a
-	jr	Z,00127$
-	ld	hl, #_selection
-	ld	a, (hl)
-	sub	a, #0x02
-	jr	NZ,00127$
-;player.c:122: disable_interrupts();
-	call	_disable_interrupts
-;player.c:123: if(paused) {
-	ld	hl, #_paused
-	ld	a, (hl)
-	or	a, a
-	jr	Z,00125$
-;player.c:124: togglePaused();
-	call	_togglePaused
+; ;player.c:81: oldjoystate = joystate;
+; 	push	hl
+; 	ld	hl, #_joystate
+; 	ld	a, (hl)
+; 	ld	hl, #_oldjoystate
+; 	ld	(hl), a
+; 	pop	hl
+; ;player.c:82: joystate = joypad();
+; 	call	_joypad
+; 	ld	hl, #_joystate
+; 	ld	(hl), e
+; ;player.c:84: if(CLICKED(J_START)) {
+; 	ld	a, (hl)
+; 	rlca
+; 	jr	NC,00102$
+; 	ld	hl, #_joystate
+; 	ld	c, (hl)
+; 	ld	b, #0x00
+; 	ld	a, c
+; 	and	a, #0x80
+; 	ld	c, a
+; 	ld	b, #0x00
+; 	ld	hl, #_oldjoystate
+; 	ld	e, (hl)
+; 	ld	d, #0x00
+; 	ld	a, e
+; 	and	a, #0x80
+; 	ld	e, a
+; 	ld	d, #0x00
+; 	ld	a, c
+; 	sub	a, e
+; 	jr	NZ,00215$
+; 	ld	a, b
+; 	sub	a, d
+; 	jr	Z,00102$
+; 00215$:
+; ;player.c:85: togglePaused();
+; 	call	_togglePaused
+; 00102$:
+; ;player.c:88: if(CLICKED(J_LEFT)) {
+; 	ld	hl, #_joystate
+; 	ld	a, (hl)
+; 	bit	1, a
+; 	jp	Z,00108$
+; 	ld	hl, #_joystate
+; 	ld	c, (hl)
+; 	ld	b, #0x00
+; 	ld	a, c
+; 	and	a, #0x02
+; 	ld	c, a
+; 	ld	b, #0x00
+; 	ld	hl, #_oldjoystate
+; 	ld	e, (hl)
+; 	ld	d, #0x00
+; 	ld	a, e
+; 	and	a, #0x02
+; 	ld	e, a
+; 	ld	d, #0x00
+; 	ld	a, c
+; 	sub	a, e
+; 	jr	NZ,00217$
+; 	ld	a, b
+; 	sub	a, d
+; 	jp	Z,00108$
+; 00217$:
+; ;player.c:89: if(selection == 0U) {
+; 	ld	hl, #_selection
+; 	ld	a, (hl)
+; 	or	a, a
+; 	jr	NZ,00105$
+; ;player.c:90: selection = 2U;
+; 	ld	(hl), #0x02
+; 	jr	00106$
+; 00105$:
+; ;player.c:92: selection--;
+; 	ld	hl, #_selection
+; 	dec	(hl)
+; 00106$:
+; ;player.c:94: move_sprite(6U, 56U + selection*24U, 103U);
+; 	ld	hl, #_selection
+; 	ld	a, (hl)
+; 	ld	c, a
+; 	add	a, a
+; 	add	a, c
+; 	add	a, a
+; 	add	a, a
+; 	add	a, a
+; 	add	a, #0x38
+; 	ld	b, a
+; 	ld	a, #0x67
+; 	push	af
+; 	inc	sp
+; 	push	bc
+; 	inc	sp
+; 	ld	a, #0x06
+; 	push	af
+; 	inc	sp
+; 	call	_move_sprite
+; 	add	sp, #3
+; ;player.c:95: move_sprite(7U, 64U + selection*24U, 103U);
+; 	ld	hl, #_selection
+; 	ld	a, (hl)
+; 	ld	c, a
+; 	add	a, a
+; 	add	a, c
+; 	add	a, a
+; 	add	a, a
+; 	add	a, a
+; 	add	a, #0x40
+; 	ld	b, a
+; 	ld	a, #0x67
+; 	push	af
+; 	inc	sp
+; 	push	bc
+; 	inc	sp
+; 	ld	a, #0x07
+; 	push	af
+; 	inc	sp
+; 	call	_move_sprite
+; 	add	sp, #3
+; 00108$:
+; ;player.c:98: if(CLICKED(J_RIGHT)) {
+; 	ld	hl, #_joystate
+; 	ld	a, (hl)
+; 	rrca
+; 	jp	NC,00114$
+; 	ld	hl, #_joystate
+; 	ld	c, (hl)
+; 	ld	b, #0x00
+; 	ld	a, c
+; 	and	a, #0x01
+; 	ld	c, a
+; 	ld	b, #0x00
+; 	ld	hl, #_oldjoystate
+; 	ld	e, (hl)
+; 	ld	d, #0x00
+; 	ld	a, e
+; 	and	a, #0x01
+; 	ld	e, a
+; 	ld	d, #0x00
+; 	ld	a, c
+; 	sub	a, e
+; 	jr	NZ,00219$
+; 	ld	a, b
+; 	sub	a, d
+; 	jp	Z,00114$
+; 00219$:
+; ;player.c:99: if(selection == 2U) {
+; 	ld	hl, #_selection
+; 	ld	a, (hl)
+; 	sub	a, #0x02
+; 	jr	NZ,00111$
+; ;player.c:100: selection = 0U;
+; 	ld	hl, #_selection
+; 	ld	(hl), #0x00
+; 	jr	00112$
+; 00111$:
+; ;player.c:102: selection++;
+; 	ld	hl, #_selection
+; 	inc	(hl)
+; 00112$:
+; ;player.c:104: move_sprite(6U, 56U + selection*24U, 103U);
+; 	ld	hl, #_selection
+; 	ld	a, (hl)
+; 	ld	c, a
+; 	add	a, a
+; 	add	a, c
+; 	add	a, a
+; 	add	a, a
+; 	add	a, a
+; 	add	a, #0x38
+; 	ld	b, a
+; 	ld	a, #0x67
+; 	push	af
+; 	inc	sp
+; 	push	bc
+; 	inc	sp
+; 	ld	a, #0x06
+; 	push	af
+; 	inc	sp
+; 	call	_move_sprite
+; 	add	sp, #3
+; ;player.c:105: move_sprite(7U, 64U + selection*24U, 103U);
+; 	ld	hl, #_selection
+; 	ld	a, (hl)
+; 	ld	c, a
+; 	add	a, a
+; 	add	a, c
+; 	add	a, a
+; 	add	a, a
+; 	add	a, a
+; 	add	a, #0x40
+; 	ld	b, a
+; 	ld	a, #0x67
+; 	push	af
+; 	inc	sp
+; 	push	bc
+; 	inc	sp
+; 	ld	a, #0x07
+; 	push	af
+; 	inc	sp
+; 	call	_move_sprite
+; 	add	sp, #3
+; 00114$:
+; ;player.c:108: if(CLICKED(J_A)) {
+; 	ld	hl, #_joystate
+; 	ld	a, (hl)
+; 	bit	4, a
+; 	jp	Z,00122$
+; 	ld	hl, #_joystate
+; 	ld	c, (hl)
+; 	ld	b, #0x00
+; 	ld	a, c
+; 	and	a, #0x10
+; 	ld	c, a
+; 	ld	b, #0x00
+; 	ld	hl, #_oldjoystate
+; 	ld	e, (hl)
+; 	ld	d, #0x00
+; 	ld	a, e
+; 	and	a, #0x10
+; 	ld	e, a
+; 	ld	d, #0x00
+; 	ld	a, c
+; 	sub	a, e
+; 	jr	NZ,00223$
+; 	ld	a, b
+; 	sub	a, d
+; 	jr	Z,00122$
+; 00223$:
+; ;player.c:109: if(selection == 0U) {
+; 	ld	hl, #_selection
+; 	ld	a, (hl)
+; 	or	a, a
+; 	jr	NZ,00119$
+; ;player.c:110: disable_interrupts();
+; 	call	_disable_interrupts
+; ;player.c:111: mus_init(&song_data);
+; 	ld	hl, #_song_data
+; 	push	hl
+; 	call	_mus_init
+; 	add	sp, #2
+; ;player.c:112: enable_interrupts();
+; 	call	_enable_interrupts
+; ;player.c:113: paused = 1U;
+; 	ld	hl, #_paused
+; 	ld	(hl), #0x01
+; ;player.c:114: togglePaused();
+; 	call	_togglePaused
+; 	jr	00122$
+; 00119$:
+; ;player.c:116: else if(selection == 1U) {
+; 	ld	hl, #_selection
+; 	ld	a, (hl)
+; 	dec	a
+; 	jr	NZ,00122$
+; ;player.c:117: togglePaused();
+; 	call	_togglePaused
+; 00122$:
+; ;player.c:121: if(ISDOWN(J_A) && selection == 2U) {
+; 	ld	hl, #_joystate
+; 	ld	a, (hl)
+; 	bit	4, a
+; 	jr	Z,00127$
+; 	ld	hl, #_selection
+; 	ld	a, (hl)
+; 	sub	a, #0x02
+; 	jr	NZ,00127$
+; ;player.c:122: disable_interrupts();
+; 	call	_disable_interrupts
+; ;player.c:123: if(paused) {
+; 	ld	hl, #_paused
+; 	ld	a, (hl)
+; 	or	a, a
+; 	jr	Z,00125$
+; ;player.c:124: togglePaused();
+; 	call	_togglePaused
 00125$:
 ;player.c:126: mus_update();
 	call	_mus_update
