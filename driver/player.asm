@@ -2281,10 +2281,10 @@ _main::
 ; ;player.c:124: togglePaused();
 ; 	call	_togglePaused
 .l00125:
-;player.c:126: mus_update();
-	call	_mus_update
-;player.c:127: enable_interrupts();
-	call	_enable_interrupts
+; ;player.c:126: mus_update();
+; 	call	_mus_update
+; ;player.c:127: enable_interrupts();
+; 	call	_enable_interrupts
 .l00127:
 ;player.c:130: wait_vbl_done();
 	call	_wait_vbl_done
@@ -2299,7 +2299,7 @@ INCLUDE "driver/music.asm"
 INCLUDE "driver/noisefreq.asm"
 INCLUDE "driver/vib.asm"
 
-SECTION "title", ROMX[$4000], BANK[1]
+SECTION "song", ROMX[$4000], BANK[1]
 INCLUDE "driver/song.asm"
 
 	; SECTION "player.c_ROMX",ROMX
